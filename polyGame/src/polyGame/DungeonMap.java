@@ -1,5 +1,5 @@
 package polyGame;
 
-public class Map {
+public class DungeonMap {
 	
 }
