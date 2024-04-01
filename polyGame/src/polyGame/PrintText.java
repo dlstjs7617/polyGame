@@ -10,8 +10,11 @@ public class PrintText {
 		for(int i=0; i<intro.length(); i++) {
 			System.out.print(intro.charAt(i));
 			delay100();
-			
 		}
+	}
+	
+	public void DungeonFloor(int floor) {
+		System.out.println("====== " + floor + "층 =====");
 	}
 	
 	private void delay100() {
