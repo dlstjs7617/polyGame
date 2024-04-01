@@ -16,6 +16,9 @@ public abstract class Unit {
 	private int maxExp;
 	private int exp;
 	
+	private boolean turn;
+	private boolean isDead;
+	
 	public Unit() {
 		this.maxExp = 100;
 	}
@@ -38,7 +41,7 @@ public abstract class Unit {
 		return this.level;
 	}
 	
-	public void init(String name, int hp, int mp, int power, int level) {
+	public void init(int hp, int mp, int power, int level) {
 		this.maxHp = hp;
 		this.hp = hp;
 		this.maxMp = mp;
