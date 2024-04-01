@@ -31,32 +31,51 @@ public class UnitManager {
 				Unit unit = (Unit)obj;
 				
 				int ranLevel = ran.nextInt(avgLevel()) + 1;
-				monsterStatus(unit, ranLevel);
+				unit = monsterStatus(unit, ranLevel);
+				monster.add(unit);
 			} catch (Exception e) {
-				
+				System.err.println("찾지 못한 클래스명");
 			}
-			
 		}
 	}
 	
 	private Unit monsterStatus(Unit unit, int level) {
 		Unit result = unit;
 		if(unit.getName().equals("박쥐")) {
-			int hp = ran.nextInt(100)+20;
-			int mp = ran.nextInt(100)+30;
-			
+			int hp = ran.nextInt(level * 5) + 100;
+			int mp = ran.nextInt(level * 3) + 50;
+			int luck = level/3;
+			int defense = level/5;
+			int dex = level/2;
+			unit.init(hp, mp, dex, level);
+			unit.init(defense, luck, dex);
 			
 		}else if(unit.getName().equals("오크")) {
-			int hp = ran.nextInt(level*10) + 100;
-			int mp = ran.nextInt(80)+30;
+			int hp = ran.nextInt(level * 10) + 200;
+			int mp = ran.nextInt(level * 5) + 70;
+			int luck = level/5;
+			int defense = level/2;
+			int dex = level/10;
+			unit.init(hp, mp, dex, level);
+			unit.init(defense, luck, dex);
 			
 		}else if(unit.getName().equals("슬라임")) {
-			int hp = ran.nextInt(100)+20;
-			int mp = ran.nextInt(100)+30;
+			int hp = ran.nextInt(level * 5) + 100;
+			int mp = ran.nextInt(level * 5) + 50;
+			int luck = level/10;
+			int defense = level/10;
+			int dex = level/10;
+			unit.init(hp, mp, dex, level);
+			unit.init(defense, luck, dex);
 			
 		}else if(unit.getName().equals("늑대")) {
-			int hp = ran.nextInt(100)+20;
-			int mp = ran.nextInt(100)+30;
+			int hp = ran.nextInt(level * 10) + 100;
+			int mp = ran.nextInt(level * 10) + 50;
+			int luck =  level/3;
+			int defense = level/7;
+			int dex = level/10;
+			unit.init(hp, mp, dex, level);
+			unit.init(defense, luck, dex);
 			
 		}
 		
