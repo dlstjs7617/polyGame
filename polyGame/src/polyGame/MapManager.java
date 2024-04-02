@@ -35,7 +35,7 @@ public class MapManager {
 	private void setGoal() {
 		int rY = ran.nextInt(SIZE-1)+1;
 		int rX = ran.nextInt(SIZE-1)+1;
-		map.get(rY).get(rX).setGoal(false);
+		map.get(rY).get(rX).setGoal(true);
 	}
 	
 	private void setMap() {
@@ -83,6 +83,8 @@ public class MapManager {
 		DungeonMap temp = map.get(y).get(x);
 		if(temp.getEncount() == 1) {
 			temp.setCheck(true);
+			System.out.println("적들과 조우했다!!");
+			GameManager.nextStage = "Battle";
 			return true;
 		}else {
 			temp.setCheck(true);
@@ -98,8 +100,14 @@ public class MapManager {
 		String input = sc.next();
 		
 		moving(input);
-		
-		if(enCount()) {
+		return checkEncount();
+	}
+	
+	private boolean checkGoal() {
+		DungeonMap temp = map.get(y).get(x);
+		if(temp.getGoal()) {
+			System.out.println("내려가는 계단을 발견했다.");
+			GameManager.nextStage = "Lobby";
 			return true;
 		}else {
 			return false;
@@ -107,5 +115,18 @@ public class MapManager {
 	}
 	
 	
+	private boolean checkEncount() {
+		if(checkGoal()) {
+			return true;
+		}else if(!checkGoal()){
+			return false;
+		}
+		
+		if(enCount()) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 	
 }
