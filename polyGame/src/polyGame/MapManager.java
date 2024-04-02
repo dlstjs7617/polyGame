@@ -2,13 +2,14 @@ package polyGame;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class MapManager {
+	private final int SIZE = 10;
 	
 	private ArrayList<ArrayList<DungeonMap>> map = new ArrayList<>();
 	private Random ran = new Random();
-	
-	private final int SIZE = 10;
+	private Scanner sc = new Scanner(System.in);
 	
 	private int y = 0;
 	private int x = 0;
@@ -22,7 +23,10 @@ public class MapManager {
 	public void printMap() {
 		for(int i=0; i<SIZE; i++) {
 			for(int j=0; j<SIZE; j++) {
-				System.out.print(map.get(i).get(j));
+				if(y == i && x == j)
+					System.out.print("▶");
+				else
+					System.out.print(map.get(i).get(j));
 			}
 			System.out.println();
 		}
@@ -50,6 +54,16 @@ public class MapManager {
 	private void resetMap() {
 		setMap();
 		setGoal();
+	}
+	
+	private void move() {
+		System.out.println("======이동======");
+		System.out.println("     d(↑)     ");
+		System.out.println("a(←) s(↓) d(→)");
+		System.out.println("==============");
+		String input = sc.next();
+		
+		moving(input);
 	}
 	
 	
