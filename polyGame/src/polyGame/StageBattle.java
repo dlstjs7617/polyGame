@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class StageBattle extends Stage{
-	UnitManager unitManager = new UnitManager();
-	ArrayList<Unit> playerList = null;
-	ArrayList<Unit> monList = null;
-	Random ran = new Random();
-	int monDead = 0;
-	int playerDead = 0;
+	private UnitManager unitManager = new UnitManager();
+	private ArrayList<Unit> playerList = null;
+	private ArrayList<Unit> monList = null;
+	private Random ran = new Random();
+	
+	private int monDead = 0;
+	private int playerDead = 0;
 	
 	@Override
 	public boolean update() {
@@ -17,13 +18,15 @@ public class StageBattle extends Stage{
 		boolean turn = false;
 		
 		while(battleRun) {
-			System.out.println("====전투 페이즈====");
+			System.out.println();
+			System.out.println("========전투 페이즈========");
 			printPlayer();
 			System.out.println();
 			printMonster();
 			
 			int pLive = playerList.size() - playerDead;
 			int mLive = monList.size() - monDead;
+			
 			playerTurn(pLive);
 			monsterTurn(mLive);
 			monDead = checkDead(monList);
@@ -38,10 +41,11 @@ public class StageBattle extends Stage{
 				int money = ran.nextInt(300)+1 +(GameManager.floor * 30);
 				GameManager.money += money;
 				System.out.println("💰 " + money +"골드 획득");
-				System.out.println("=================");
+				System.out.println("=========================");
 				turn = true;
 				battleRun = false;
 			}
+			System.out.println();
 		}
 		
 		
@@ -64,19 +68,26 @@ public class StageBattle extends Stage{
 		playerDead = checkDead(playerList);
 	}
 	
+	private void clearConsol() {
+		for(int i=0; i<20; i++) {
+			System.out.println();
+		}
+	}
+	
 	private void playerTurn(int pLive) {
 		int cnt = 0;
-		System.out.println(pLive);
 		while(pLive > cnt) {
+			Unit player = playerList.get(cnt);
+			System.out.println();
+			System.out.println(player.name +"의 턴");
 			System.out.println("1.⚔️공격 2.🌀스킬 3.미구현");
 			int sel = GameManager.inputString("선택");
-			
+			System.out.println();
 			if(sel == -1)
 				continue;
 			if(sel == 1) {
-				Unit unit = playerList.get(cnt);
 				Unit enemy = monList.get(ranAttack(monList));
-				unit.attack(enemy);
+				player.attack(enemy);
 			}else if(sel == 2) {
 				
 			}
@@ -108,12 +119,14 @@ public class StageBattle extends Stage{
 	
 	private void monsterTurn(int mLive) {
 		int cnt = 0;
+		System.out.println("====[전투결과]====");
 		while(!turnEnd(monList) && cnt < monList.size()) {
 			Unit unit = monList.get(cnt);
 			Unit enemy = playerList.get(ranAttack(playerList));
 			unit.attack(enemy);
 			cnt++;
 		}
+		System.out.println("===============");
 	}
 	
 	private void printUnit(Unit unit) {
