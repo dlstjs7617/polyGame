@@ -63,6 +63,7 @@ public class MapManager {
 	}
 	
 	private void resetMap() {
+		map.clear();
 		setMap();
 		setGoal();
 	}
@@ -120,6 +121,7 @@ public class MapManager {
 			System.out.println("내려가는 계단을 발견했다.");
 			GameManager.nextStage = "Lobby";
 			GameManager.floor++;
+			resetMap();
 			return true;
 		}else {
 			return false;
