@@ -14,13 +14,14 @@ public class GameManager {
 	public static String curStage = "";
 	
 	public static int floor = 1;
-	
+	public static int money = 0;
 	public GameManager() {
 		stageList.put("Lobby", new StageLobby());
 		stageList.put("Battle", new StageBattle());
 		stageList.put("Move", new StageMove());
 		stageList.put("Viilage", new StageVillage());
 		stageList.put("Boss", new StageBoss());
+		stageList.put("BadEnd", new StageBoss());
 		
 		nextStage = "Lobby";
 	}
