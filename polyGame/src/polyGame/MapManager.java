@@ -14,6 +14,11 @@ public class MapManager {
 	private int y = 0;
 	private int x = 0;
 	
+	public MapManager() {
+		resetMap();
+		map.get(y).get(x).setCheck(true);
+	}
+	
 	private static MapManager instance = new MapManager();
 	
 	public static MapManager getInstance() {
@@ -24,7 +29,7 @@ public class MapManager {
 		for(int i=0; i<SIZE; i++) {
 			for(int j=0; j<SIZE; j++) {
 				if(y == i && x == j)
-					System.out.print("▶");
+					System.out.print("▶ ");
 				else
 					System.out.print(map.get(i).get(j));
 			}
@@ -34,7 +39,7 @@ public class MapManager {
 	
 	private void setGoal() {
 		int rY = ran.nextInt(SIZE-1)+1;
-		int rX = ran.nextInt(SIZE-1)+1;
+		int rX = ran.nextInt(SIZE);
 		map.get(rY).get(rX).setGoal(true);
 	}
 	
@@ -69,7 +74,7 @@ public class MapManager {
 			tempX++;
 		}
 		
-		if(tempY < 0 || tempY >= SIZE || tempX < 0 || tempY >= SIZE) {
+		if(tempY < 0 || tempY >= SIZE || tempX < 0 || tempX >= SIZE) {
 			System.err.println("벽에 박았습니다.");
 			return;
 		}
@@ -118,10 +123,7 @@ public class MapManager {
 	private boolean checkEncount() {
 		if(checkGoal()) {
 			return true;
-		}else if(!checkGoal()){
-			return false;
 		}
-		
 		if(enCount()) {
 			return true;
 		}else {
