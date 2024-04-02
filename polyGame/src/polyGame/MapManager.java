@@ -56,14 +56,54 @@ public class MapManager {
 		setGoal();
 	}
 	
-	private void move() {
+	private void moving(String input) {
+		int tempY = y;
+		int tempX = x;
+		if(input.equals("w")) {
+			tempY--;
+		}else if(input.equals("a")) {
+			tempX--;
+		}else if(input.equals("s")) {
+			tempY++;
+		}else if(input.equals("d")) {
+			tempX++;
+		}
+		
+		if(tempY < 0 || tempY >= SIZE || tempX < 0 || tempY >= SIZE) {
+			System.err.println("벽에 박았습니다.");
+			return;
+		}
+		
+		y = tempY;
+		x = tempX;
+		
+	}
+	
+	private boolean enCount() {
+		DungeonMap temp = map.get(y).get(x);
+		if(temp.getEncount() == 1) {
+			temp.setCheck(true);
+			return true;
+		}else {
+			temp.setCheck(true);
+			return false;
+		}
+	}
+	
+	private boolean move() {
 		System.out.println("======이동======");
-		System.out.println("     d(↑)     ");
+		System.out.println("     w(↑)     ");
 		System.out.println("a(←) s(↓) d(→)");
 		System.out.println("==============");
 		String input = sc.next();
 		
 		moving(input);
+		
+		if(enCount()) {
+			return false;
+		}else {
+			return true;
+		}
 	}
 	
 	
