@@ -92,7 +92,7 @@ public class MapManager {
 	
 	private boolean enCount() {
 		DungeonMap temp = map.get(y).get(x);
-		if(temp.getEncount() == 1) {
+		if(temp.getEncount() == 1 && !temp.getCheck()) {
 			temp.setCheck(true);
 			System.out.println("적들과 조우했다!!");
 			GameManager.nextStage = "Battle";
