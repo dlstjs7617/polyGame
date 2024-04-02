@@ -13,6 +13,8 @@ public class GameManager {
 	public static String nextStage = "";
 	public static String curStage = "";
 	
+	private int floor = 1;
+	
 	public GameManager() {
 		stageList.put("Lobby", new StageLobby());
 		stageList.put("Battle", new StageBattle());
