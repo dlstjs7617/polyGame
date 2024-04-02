@@ -4,7 +4,7 @@ public class DungeonMap {
 	private int encount;
 	private boolean check;
 	private boolean goal;
-	private boolean player;
+	
 	
 	public DungeonMap(int num) {
 		this.encount = num;
@@ -33,6 +33,6 @@ public class DungeonMap {
 	
 	@Override
 	public String toString() {
-		return String.format("%s ", player == true ? "▶" : check == true ? "■" : "□");
+		return String.format("", check == true ? "■" : "□");
 	}
 }
