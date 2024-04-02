@@ -30,7 +30,7 @@ public class UnitManager {
 				Object obj = clazz.getDeclaredConstructor().newInstance();
 				Unit unit = (Unit)obj;
 				
-				int ranLevel = ran.nextInt(avgLevel()) + 1;
+				int ranLevel = ran.nextInt(5)+avgLevel();
 				unit = monsterStatus(unit, ranLevel);
 				monster.add(unit);
 			} catch (Exception e) {
