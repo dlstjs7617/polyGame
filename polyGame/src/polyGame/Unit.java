@@ -105,18 +105,22 @@ public abstract class Unit {
 	public boolean isDead() {
 		return isDead;
 	}
+	
+	public void setDead(boolean isDead) {
+		this.isDead = isDead;
+	}
 
 	public void attack(Unit unit) {
 		
-		boolean agility = ran.nextInt(3)+unit.dex > ran.nextInt(luck*3) ? true : false;
-		boolean critical = ran.nextInt(luck) > unit.dex*3 ? true : false;
+		boolean agility = ran.nextInt(3)+unit.dex > ran.nextInt(luck*3+1)+10 ? true : false;
+		boolean critical = ran.nextInt(luck+1) > unit.dex*3 ? true : false;
 		
 		if(!agility && !critical) {
 			nomalAttack(unit);
 		}else if(critical) {
 			criticalAttack(unit);
 		}else if(agility) {
-			System.out.println(unit.name +"이 너무 빨라 공격이 빗나갔다.");
+			System.out.println(unit.name +"가 너무 빨라 공격이 빗나갔다.");
 		}
 		
 		
@@ -172,6 +176,8 @@ public abstract class Unit {
 	private void deadUnit(Unit unit) {
 		if(unit.hp <= 0) {
 			System.out.println("[" + unit.name + "]이 사망했습니다.");
+			unit.hp = 0;
+			unit.setDead(!isDead);
 			int expPlus = unit.level * 5;
 			setExp(expPlus);
 		}
