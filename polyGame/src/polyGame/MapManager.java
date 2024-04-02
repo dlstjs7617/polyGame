@@ -13,8 +13,10 @@ public class MapManager {
 	private int y = 0;
 	private int x = 0;
 	
-	public MapManager() {
-		
+	private static MapManager instance = new MapManager();
+	
+	public static MapManager getInstance() {
+		return instance;
 	}
 	
 	public void printMap() {
@@ -26,10 +28,9 @@ public class MapManager {
 		}
 	}
 	
-	
 	private void setGoal() {
-		int rY = ran.nextInt(SIZE);
-		int rX = ran.nextInt(SIZE);
+		int rY = ran.nextInt(SIZE-1)+1;
+		int rX = ran.nextInt(SIZE-1)+1;
 		map.get(rY).get(rX).setGoal(false);
 	}
 	
@@ -44,6 +45,11 @@ public class MapManager {
 			}
 			map.add(temp);
 		}
+	}
+	
+	private void resetMap() {
+		setMap();
+		setGoal();
 	}
 	
 	
