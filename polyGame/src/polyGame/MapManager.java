@@ -119,6 +119,7 @@ public class MapManager {
 		if(temp.getGoal()) {
 			System.out.println("내려가는 계단을 발견했다.");
 			GameManager.nextStage = "Lobby";
+			GameManager.floor++;
 			return true;
 		}else {
 			return false;
