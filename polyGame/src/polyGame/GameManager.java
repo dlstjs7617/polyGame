@@ -19,7 +19,7 @@ public class GameManager {
 		stageList.put("Lobby", new StageLobby());
 		stageList.put("Battle", new StageBattle());
 		stageList.put("Move", new StageMove());
-		stageList.put("Viilage", new StageVillage());
+		stageList.put("Village", new StageVillage());
 		stageList.put("Boss", new StageBoss());
 		stageList.put("BadEnd", new StageBoss());
 		
