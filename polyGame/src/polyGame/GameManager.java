@@ -13,7 +13,7 @@ public class GameManager {
 	public static String nextStage = "";
 	public static String curStage = "";
 	
-	private int floor = 1;
+	private static int floor = 1;
 	
 	public GameManager() {
 		stageList.put("Lobby", new StageLobby());
@@ -24,6 +24,19 @@ public class GameManager {
 		
 		nextStage = "Lobby";
 	}
+	
+	public static int inputString(String message) {
+		int number = -1;
+		System.out.print(message + " : ");
+		try {
+			String input = sc.next();
+			number = Integer.parseInt(input);
+		} catch (Exception e) {
+			System.err.println("숫자만 입력");
+		}
+		return number;
+	}
+
 	
 	private boolean changeStage() {		
 		System.out.println("curStage : " + curStage);
