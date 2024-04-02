@@ -1,7 +1,7 @@
 package polyGame;
 
-public class UnitBat {
-	public UnitBat(String name) {
-		name = "박쥐";
+public class UnitBat extends Unit{
+	public UnitBat() {
+		this.name = "박쥐";
 	}
 }

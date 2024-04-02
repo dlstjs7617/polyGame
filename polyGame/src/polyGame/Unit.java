@@ -1,8 +1,12 @@
 package polyGame;
 
+import java.util.Random;
+
 public abstract class Unit {
 	
-	private String name;
+	private Random ran = new Random();
+	
+	public String name;
 	
 	private int maxHp;
 	private int hp;
@@ -20,7 +24,7 @@ public abstract class Unit {
 	private boolean isDead;
 	
 	public Unit() {
-		this.maxExp = 100;
+		
 	}
 	
 	public Unit(String name, int hp, int mp, int power, int level) {
@@ -31,6 +35,7 @@ public abstract class Unit {
 		this.mp = mp;
 		this.power = power;
 		this.level = level;
+		this.maxExp = 100;
 	}
 	
 	public String getName() {
@@ -48,6 +53,7 @@ public abstract class Unit {
 		this.mp = mp;
 		this.power = power;
 		this.level = level;
+		this.maxExp = 100;
 	}
 	
 	public void init(int defense, int luck, int dex) {
@@ -58,11 +64,21 @@ public abstract class Unit {
 	
 	
 	public void attack(Unit unit) {
-		unit.hp -= power;
+		
+		boolean agility = ran.nextInt(3)+unit.dex > ran.nextInt(luck*3)? true : false;
+		boolean critical = ran.nextInt(luck) > unit.dex*3 ? true : false;
+		
+		if(unit.defense < this.power) {
+			unit.hp -= this.power-unit.defense;
+			
+			String temp = String.format("%s가 %s를 %d의 공격!", this.name, unit.getName(), power-unit.defense);
+			System.out.println(temp);
+		}else if(unit.defense >= this.power){
+			System.out.println(unit.getName()+" 의 방어력이 높아 공격이 막혔다!");
+		}
 		
 		if(unit.hp <= 0) {
 			System.out.println("[" + unit.name + "]이 사망했습니다.");
-			
 			int expPlus = unit.level * 5;
 			setExp(expPlus);
 		}
@@ -86,6 +102,11 @@ public abstract class Unit {
 			maxExp += 20;
 			levelUp();
 		}
+		
+	}
+	
+	
+	private void nomalAttack(Unit unit) {
 		
 	}
 	
