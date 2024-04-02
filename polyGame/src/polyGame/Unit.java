@@ -35,7 +35,7 @@ public abstract class Unit {
 		this.mp = mp;
 		this.power = power;
 		this.level = level;
-		this.maxExp = 100;
+		this.maxExp = 50;
 	}
 	
 	public String getName() {
@@ -53,7 +53,7 @@ public abstract class Unit {
 		this.mp = mp;
 		this.power = power;
 		this.level = level;
-		this.maxExp = 100;
+		this.maxExp = 50;
 	}
 	
 	public void init(int defense, int luck, int dex) {
