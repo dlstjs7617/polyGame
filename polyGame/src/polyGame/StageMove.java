@@ -7,7 +7,8 @@ public class StageMove extends Stage{
 	@Override
 	public boolean update() {
 		boolean run = true;
-		while(true) {			
+		while(true) {
+			System.out.println("======= "+ GameManager.floor +"층 =======");
 			map.printMap();
 			if(map.move()) {
 				return false;
