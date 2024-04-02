@@ -65,23 +65,20 @@ public abstract class Unit {
 	
 	public void attack(Unit unit) {
 		
-		boolean agility = ran.nextInt(3)+unit.dex > ran.nextInt(luck*3)? true : false;
+		boolean agility = ran.nextInt(3)+unit.dex > ran.nextInt(luck*3) ? true : false;
 		boolean critical = ran.nextInt(luck) > unit.dex*3 ? true : false;
 		
-		if(unit.defense < this.power) {
-			unit.hp -= this.power-unit.defense;
-			
-			String temp = String.format("%s가 %s를 %d의 공격!", this.name, unit.getName(), power-unit.defense);
-			System.out.println(temp);
-		}else if(unit.defense >= this.power){
-			System.out.println(unit.getName()+" 의 방어력이 높아 공격이 막혔다!");
+		if(!agility && !critical) {
+			nomalAttack(unit);
+		}else if(critical) {
+			criticalAttack(unit);
+		}else if(agility) {
+			System.out.println(unit.name +"이 너무 빨라 공격이 빗나갔다.");
 		}
 		
-		if(unit.hp <= 0) {
-			System.out.println("[" + unit.name + "]이 사망했습니다.");
-			int expPlus = unit.level * 5;
-			setExp(expPlus);
-		}
+		
+		deadUnit(unit);
+		
 	}
 	
 	private void levelUp() {
@@ -105,10 +102,36 @@ public abstract class Unit {
 		
 	}
 	
-	
-	private void nomalAttack(Unit unit) {
-		
+	private void criticalAttack(Unit unit) {
+		int fullPower = power*2;
+		if(unit.defense < fullPower) {
+			unit.hp -= fullPower-unit.defense;
+			
+			String temp = String.format("%s가 %s를 %d의 치명타 공격!", this.name, unit.getName(), fullPower-unit.defense);
+			System.out.println(temp);
+		}else if(unit.defense >= fullPower){
+			System.out.println(unit.getName()+" 의 급소를 맞췄지만 방어력이 높아 공격이 안들어갔다!.");
+		}
 	}
 	
+	private void nomalAttack(Unit unit) {
+		if(unit.defense < this.power) {
+			unit.hp -= this.power-unit.defense;
+			
+			String temp = String.format("%s가 %s를 %d의 공격!", this.name, unit.getName(), power-unit.defense);
+			System.out.println(temp);
+		}else if(unit.defense >= this.power){
+			System.out.println(unit.getName()+" 의 방어력이 높아 공격이 막혔다!");
+		}
+	}
+	
+	
+	private void deadUnit(Unit unit) {
+		if(unit.hp <= 0) {
+			System.out.println("[" + unit.name + "]이 사망했습니다.");
+			int expPlus = unit.level * 5;
+			setExp(expPlus);
+		}
+	}
 }
 	
