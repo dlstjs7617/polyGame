@@ -62,7 +62,50 @@ public abstract class Unit {
 		this.dex = dex;
 	}
 	
-	
+	public boolean isTurn() {
+		return turn;
+	}
+
+	public void setTurn(boolean turn) {
+		this.turn = turn;
+	}
+
+	public int getMaxHp() {
+		return maxHp;
+	}
+
+	public int getHp() {
+		return hp;
+	}
+
+	public int getMaxMp() {
+		return maxMp;
+	}
+
+	public int getMp() {
+		return mp;
+	}
+
+	public int getPower() {
+		return power;
+	}
+
+	public int getDefense() {
+		return defense;
+	}
+
+	public int getMaxExp() {
+		return maxExp;
+	}
+
+	public int getExp() {
+		return exp;
+	}
+
+	public boolean isDead() {
+		return isDead;
+	}
+
 	public void attack(Unit unit) {
 		
 		boolean agility = ran.nextInt(3)+unit.dex > ran.nextInt(luck*3) ? true : false;
