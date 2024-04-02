@@ -38,9 +38,15 @@ public class MapManager {
 	}
 	
 	private void setGoal() {
-		int rY = ran.nextInt(SIZE-1)+1;
-		int rX = ran.nextInt(SIZE);
-		map.get(rY).get(rX).setGoal(true);
+		while(true) {
+			int rY = ran.nextInt(SIZE);
+			int rX = ran.nextInt(SIZE);
+			
+			if(rY != 0 && rX != 0) {
+				map.get(rY).get(rX).setGoal(true);				
+				break;
+			}
+		}
 	}
 	
 	private void setMap() {
