@@ -90,7 +90,7 @@ public class MapManager {
 		}
 	}
 	
-	private boolean move() {
+	public boolean move() {
 		System.out.println("======이동======");
 		System.out.println("     w(↑)     ");
 		System.out.println("a(←) s(↓) d(→)");
@@ -100,9 +100,9 @@ public class MapManager {
 		moving(input);
 		
 		if(enCount()) {
-			return false;
-		}else {
 			return true;
+		}else {
+			return false;
 		}
 	}
 	
