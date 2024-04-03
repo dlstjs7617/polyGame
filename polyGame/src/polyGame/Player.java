@@ -89,7 +89,7 @@ public class Player extends Unit{
 		int heal = getLevel()*2+getPower()*2;
 		PrintText.delay200();
 		System.out.println("╔════════════════════════════════╗");
-		System.out.println("║		호잇		 ║");
+		System.out.println("║		회복		 ║");
 		System.out.println("╚════════════════════════════════╝");
 		
 		PrintText.delay200();
