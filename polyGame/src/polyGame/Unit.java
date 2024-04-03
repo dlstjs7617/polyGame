@@ -131,7 +131,7 @@ public abstract class Unit {
 			criticalAttack(unit);
 		}else if(agility) {
 			System.out.println("╔════════════════════════════════╗");
-			System.out.printf("║ %3s가 너무 빨라 공격이 빗나갔다.	║\n",unit.name);
+			System.out.printf("║   %3s가 너무 빨라 공격이 빗나갔다. 	 ║\n",unit.name);
 			System.out.println("╚════════════════════════════════╝");
 		}
 		
@@ -192,7 +192,9 @@ public abstract class Unit {
 			System.out.println("\t" + temp);
 			System.out.println("╚════════════════════════════════╝");
 		}else if(unit.defense >= this.power){
-			System.out.println(unit.getName()+" 의 방어력이 높아 공격이 막혔다!");
+			System.out.println("╔════════════════════════════════╗");
+			System.out.println("   "+unit.getName()+" 의 방어력이 높아 공격이 막혔다!");
+			System.out.println("╚════════════════════════════════╝");
 		}
 	}
 	
