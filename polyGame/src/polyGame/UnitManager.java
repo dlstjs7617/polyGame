@@ -15,7 +15,7 @@ public class UnitManager {
 	public UnitManager() {
 		players.add(new Player("전사", 500, 200, 30, 1));
 		players.get(0).init(30, 5, 2);	// 방어력, 행운, 회피
-		players.add(new Player("마법사", 300, 500, 30, 1));
+		players.add(new Player("마법사", 300, 500, 20, 1));
 		players.get(1).init(10, 7, 1);
 		players.add(new Player("힐러", 300, 200, 10, 1));
 		players.get(2).init(5, 10, 10);
