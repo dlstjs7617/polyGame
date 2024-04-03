@@ -83,7 +83,7 @@ public class StageBattle extends Stage{
 			System.out.println("║🔹 선택할 행동:			 ║");
 			System.out.println("║1.⚔️공격				 ║");
 			System.out.println("║2.🌀스킬				 ║");
-			System.out.println("║3.미구현				 ║");
+//			System.out.println("║3.미구현				 ║");
 			System.out.println("╠════════════════════════════════╣");
 			System.out.println("║원하는 행동을 선택하세요.		 ║");
 			System.out.println("╚════════════════════════════════╝");
@@ -98,9 +98,11 @@ public class StageBattle extends Stage{
 				player.attack(enemy);
 			}else if(sel == 2) {	
 				if(player.getName().equals("힐러")) {
-					player.skill(pHeal);
+					if(!player.skill(pHeal))
+						continue;
 				}else
-					player.skill(enemy);
+					if(!player.skill(enemy))
+						continue;
 			}
 			if(turnEnd(monList))
 				break;	
@@ -196,10 +198,10 @@ public class StageBattle extends Stage{
 	}
 	
 	private Unit findLowHp() {
-		int low = 9999999;
+		int low = 0;
 		for(int i=0; i<playerList.size(); i++) {
 			Unit unit = playerList.get(i);
-			if(unit.getHp() < low) {
+			if(unit.getHp() < playerList.get(low).getHp()) {
 				low = i;
 			}
 		}
