@@ -57,7 +57,7 @@ public class GameManager {
 				break;
 		}
 
-		if (nextStage.equals(""))
+		if (nextStage.equals("BadEnd") || nextStage.equals("End"))
 			return false;
 		else
 			return true;
