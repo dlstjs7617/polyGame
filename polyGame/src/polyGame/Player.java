@@ -84,7 +84,9 @@ public class Player extends Unit{
 			return false;
 		}
 		setMp(getMp()-30);
-		int heal = getLevel()*getPower()*2;
+		PrintText.printHealerSkill();
+		
+		int heal = getLevel()*2+getPower()*2;
 		PrintText.delay200();
 		System.out.println("╔════════════════════════════════╗");
 		System.out.println("║		호잇		 ║");
@@ -92,7 +94,7 @@ public class Player extends Unit{
 		
 		PrintText.delay200();
 		System.out.println("╔════════════════════════════════╗");
-		System.out.printf( "║  마법사가 %4s에게 회복	 ║\n", unit.getName(), heal);
+		System.out.printf( "║  마법사가 %4s에게 %d회복		 ║\n", unit.getName(), heal);
 		System.out.println("╚════════════════════════════════╝");
 		unit.setHp(getHp()+heal);
 		deadUnit(unit);
