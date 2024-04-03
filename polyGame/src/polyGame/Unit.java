@@ -120,7 +120,9 @@ public abstract class Unit {
 		}else if(critical) {
 			criticalAttack(unit);
 		}else if(agility) {
-			System.out.println(unit.name +"가 너무 빨라 공격이 빗나갔다.");
+			System.out.println("╔════════════════════════════════╗");
+			System.out.printf("║ %3s가 너무 빨라 공격이 빗나갔다.	║\n",unit.name);
+			System.out.println("╚════════════════════════════════╝");
 		}
 		
 		
@@ -136,12 +138,16 @@ public abstract class Unit {
 		this.maxMp += 5; 
 	}
 	private void setExp(int expPlus) {
-		System.out.println("경험치 : " + expPlus + " 획득!");
+		System.out.println("╔════════════════════════════════╗");
+		System.out.println("\t경험치 : " + expPlus + " 획득!");
+		System.out.println("╚════════════════════════════════╝");
 		this.exp += expPlus;
 		
 		if(exp >= maxExp) {
 			++this.level;
-			System.out.println("["+ this.name +"]가 레벨"+ this.level +"이 되었습니다. ");
+			System.out.println("╔════════════════════════════════╗");
+			System.out.println("\t" + "["+ this.name +"]가 레벨"+ this.level +"이 되었습니다. ");
+			System.out.println("╚════════════════════════════════╝");
 			exp -= maxExp;
 			maxExp += 20;
 			levelUp();
@@ -153,11 +159,16 @@ public abstract class Unit {
 		int fullPower = power*2;
 		if(unit.defense < fullPower) {
 			unit.hp -= fullPower-unit.defense;
-			
+
 			String temp = String.format("%s가 %s를 %d의 치명타 공격!", this.name, unit.getName(), fullPower-unit.defense);
-			System.out.println(temp);
+			
+			System.out.println("╔════════════════════════════════╗");
+			System.out.println("    " + temp);
+			System.out.println("╚════════════════════════════════╝");
 		}else if(unit.defense >= fullPower){
-			System.out.println(unit.getName()+" 의 급소를 맞췄지만 방어력이 높아 공격이 안들어갔다!.");
+			System.out.println("╔════════════════════════════════╗");
+			System.out.println("\t" + unit.getName()+" 의 급소를 맞췄지만 방어력이 높아 공격이 안들어갔다!.");
+			System.out.println("╚════════════════════════════════╝");
 		}
 	}
 	
@@ -166,7 +177,10 @@ public abstract class Unit {
 			unit.hp -= this.power-unit.defense;
 			
 			String temp = String.format("%s가 %s를 %d의 공격!", this.name, unit.getName(), power-unit.defense);
-			System.out.println(temp);
+
+			System.out.println("╔════════════════════════════════╗");
+			System.out.println("\t" + temp);
+			System.out.println("╚════════════════════════════════╝");
 		}else if(unit.defense >= this.power){
 			System.out.println(unit.getName()+" 의 방어력이 높아 공격이 막혔다!");
 		}
@@ -175,7 +189,9 @@ public abstract class Unit {
 	
 	private void deadUnit(Unit unit) {
 		if(unit.hp <= 0) {
-			System.out.println("[" + unit.name + "]이 사망했습니다.");
+			System.out.println("╔════════════════════════════════╗");
+			System.out.println("\t"+ "[" + unit.name + "]이 사망했습니다.");
+			System.out.println("╚════════════════════════════════╝");
 			unit.hp = 0;
 			unit.setDead(!isDead);
 			int expPlus = unit.level * 5;
