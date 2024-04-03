@@ -40,6 +40,20 @@ public class Player extends Unit{
 		setMp(getMp()-20);
 		PrintText.printWarriorSkill();
 		
+		int damage = unit.getHp()-getPower()*3;
+		
+		PrintText.delay200();
+		System.out.println("╔════════════════════════════════╗");
+		System.out.println("║	아아 이 서늘하고도 묵직한 감각	 ║");
+		System.out.println("║	      2년만 이구만	  	 ║");
+		System.out.println("╚════════════════════════════════╝");
+		
+		PrintText.delay200();
+		System.out.println("╔════════════════════════════════╗");
+		System.out.printf( "║   전사가 %4s한테 %4d의 데미지	 ║\n", unit.getName(), getPower()*3);
+		System.out.println("╚════════════════════════════════╝");
+		unit.setHp(damage);
+		deadUnit(unit);
 		return true;
 	}
 	
@@ -47,7 +61,21 @@ public class Player extends Unit{
 		if(!checkMana(40)) {
 			return false;
 		}
-		// 스킬 구현
+		setMp(getMp()-50);
+		PrintText.printWizardSkill();
+		
+		int damage = unit.getHp()-getPower()*3;
+		PrintText.delay200();
+		System.out.println("╔════════════════════════════════╗");
+		System.out.println("║		호잇		 ║");
+		System.out.println("╚════════════════════════════════╝");
+		
+		PrintText.delay200();
+		System.out.println("╔════════════════════════════════╗");
+		System.out.printf( "║  마법사가 %4s한테 %4d의 데미지	 ║\n", unit.getName(), getPower()*3);
+		System.out.println("╚════════════════════════════════╝");
+		unit.setHp(damage);
+		deadUnit(unit);
 		return true;
 	}
 	
@@ -55,7 +83,19 @@ public class Player extends Unit{
 		if(!checkMana(30)) {
 			return false;
 		}
-		// 스킬 구현
+		setMp(getMp()-30);
+		int heal = getLevel()*getPower()*2;
+		PrintText.delay200();
+		System.out.println("╔════════════════════════════════╗");
+		System.out.println("║		호잇		 ║");
+		System.out.println("╚════════════════════════════════╝");
+		
+		PrintText.delay200();
+		System.out.println("╔════════════════════════════════╗");
+		System.out.printf( "║  마법사가 %4s에게 회복	 ║\n", unit.getName(), heal);
+		System.out.println("╚════════════════════════════════╝");
+		unit.setHp(getHp()+heal);
+		deadUnit(unit);
 		return true;
 	}
 	
