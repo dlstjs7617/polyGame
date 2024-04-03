@@ -17,6 +17,9 @@ public class GameManager {
 	
 	public static int floor = 1;
 	public static int money = 0;
+	public static int hpPotion = 0;
+	public static int mpPotion = 0;
+	
 	public GameManager() {
 		stageList.put("Lobby", new StageLobby());
 		stageList.put("Battle", new StageBattle());
