@@ -198,5 +198,7 @@ public abstract class Unit {
 			setExp(expPlus);
 		}
 	}
+	
+	public abstract boolean skill();
 }
 	
