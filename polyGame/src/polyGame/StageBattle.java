@@ -45,7 +45,7 @@ public class StageBattle extends Stage{
 				GameManager.money += money;
 
 				System.out.println("╔════════════════════════════════╗");
-				System.out.println("\t💰 " + money +"골드 획득");
+				System.out.println("\t    💰 " + money +"골드 획득");
 				System.out.println("╚════════════════════════════════╝");
 				turn = true;
 				battleRun = false;
@@ -139,7 +139,7 @@ public class StageBattle extends Stage{
 		int cnt = 0;
 		
 		System.out.println("╔════════════════════════════════╗");
-		System.out.println("║	🛡️ 『✨ 전투 결과 ✨』 🗡️ 	 ║");
+		System.out.println("║     🛡️ 『✨ 전투 결과 ✨』 🗡️	 ║");
 		while(!turnEnd(monList) && cnt < monList.size()) {
 			Unit unit = monList.get(cnt);
 			Unit enemy = playerList.get(ranAttack(playerList));
