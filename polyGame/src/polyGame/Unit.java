@@ -85,6 +85,10 @@ public abstract class Unit {
 	public int getMp() {
 		return mp;
 	}
+	
+	public void setMp(int mp) {
+		this.mp = mp;
+	}
 
 	public int getPower() {
 		return power;
