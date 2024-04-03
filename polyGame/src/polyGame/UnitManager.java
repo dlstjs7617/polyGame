@@ -95,5 +95,11 @@ public class UnitManager {
 		return level/players.size();
 	}
 	
+	public void allHeal() {
+		for(int i=0; i<players.size(); i++) {
+			Unit unit = players.get(i);
+			unit.setHp(unit.getMaxHp());
+		}
+	}
 	
 }
