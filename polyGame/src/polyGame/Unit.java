@@ -73,6 +73,12 @@ public abstract class Unit {
 	public int getMaxHp() {
 		return maxHp;
 	}
+	
+	public void setHp(int hp) {
+		this.hp = hp;
+		if(this.hp > this.maxHp)
+			this.hp = this.maxHp;
+	}
 
 	public int getHp() {
 		return hp;
@@ -191,7 +197,7 @@ public abstract class Unit {
 	}
 	
 	
-	private void deadUnit(Unit unit) {
+	protected void deadUnit(Unit unit) {
 		if(unit.hp <= 0) {
 			System.out.println("╔════════════════════════════════╗");
 			System.out.println("\t"+ "💀[" + unit.name + "]이 사망했습니다.");
