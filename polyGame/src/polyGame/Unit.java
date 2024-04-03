@@ -190,7 +190,7 @@ public abstract class Unit {
 	private void deadUnit(Unit unit) {
 		if(unit.hp <= 0) {
 			System.out.println("╔════════════════════════════════╗");
-			System.out.println("\t"+ "[" + unit.name + "]이 사망했습니다.");
+			System.out.println("\t"+ "💀[" + unit.name + "]이 사망했습니다.");
 			System.out.println("╚════════════════════════════════╝");
 			unit.hp = 0;
 			unit.setDead(!isDead);
