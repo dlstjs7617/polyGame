@@ -203,6 +203,6 @@ public abstract class Unit {
 		}
 	}
 	
-	public abstract boolean skill();
+	public abstract boolean skill(Unit unit);
 }
 	

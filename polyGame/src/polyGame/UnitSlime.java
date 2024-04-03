@@ -6,7 +6,7 @@ public class UnitSlime extends Unit{
 	}
 
 	@Override
-	public boolean skill() {
+	public boolean skill(Unit unit) {
 		// TODO Auto-generated method stub
 		return false;
 	}
