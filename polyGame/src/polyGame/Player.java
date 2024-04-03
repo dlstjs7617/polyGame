@@ -94,9 +94,9 @@ public class Player extends Unit{
 		
 		PrintText.delay200();
 		System.out.println("╔════════════════════════════════╗");
-		System.out.printf( "║  마법사가 %4s에게 %d회복		 ║\n", unit.getName(), heal);
+		System.out.printf( "║   힐러가 %4s에게 %d회복		 ║\n", unit.getName(), heal);
 		System.out.println("╚════════════════════════════════╝");
-		unit.setHp(getHp()+heal);
+		unit.setHp(unit.getHp()+heal);
 		deadUnit(unit);
 		return true;
 	}
@@ -104,7 +104,7 @@ public class Player extends Unit{
 	private boolean checkMana(int need) {
 		if(this.getMp() < need) {
 			System.out.println("╔════════════════════════════════╗");
-			System.out.printf("\t %4s는 mp가 부족하다",name);
+			System.out.printf("\t %4s는 mp가 부족하다\n",name);
 			System.out.println("╚════════════════════════════════╝");
 			return false;
 		}
