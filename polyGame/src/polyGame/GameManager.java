@@ -2,6 +2,7 @@ package polyGame;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
 
 public class GameManager {
@@ -9,6 +10,7 @@ public class GameManager {
 	Map<String,Stage> stageList = new HashMap<String, Stage>();
 
 	public static Scanner sc = new Scanner(System.in);
+	public static Random ran = new Random();
 	public static PrintText text = new PrintText();
 	public static String nextStage = "";
 	public static String curStage = "";
