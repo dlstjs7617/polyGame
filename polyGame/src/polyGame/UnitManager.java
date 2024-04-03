@@ -5,8 +5,8 @@ import java.util.Random;
 
 public class UnitManager {
 	
-	public ArrayList<Unit> players = new ArrayList<Unit>();
-	public ArrayList<Unit> monster = new ArrayList<Unit>();
+	public static ArrayList<Unit> players = new ArrayList<Unit>();
+	public static ArrayList<Unit> monster = new ArrayList<Unit>();
 	
 	private String path = "polyGame.";
 	private String[] mons = { "UnitBat", "UnitOrc", "UnitSlime", "UnitWolf" };
@@ -95,10 +95,11 @@ public class UnitManager {
 		return level/players.size();
 	}
 	
-	public void allHeal() {
+	public static void allHeal() {
 		for(int i=0; i<players.size(); i++) {
 			Unit unit = players.get(i);
 			unit.setHp(unit.getMaxHp());
+			unit.setMp(unit.getMaxMp());
 		}
 	}
 	
