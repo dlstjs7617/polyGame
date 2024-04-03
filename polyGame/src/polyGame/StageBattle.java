@@ -92,15 +92,19 @@ public class StageBattle extends Stage{
 			if(sel == -1)
 				continue;
 			
+			Unit enemy = monList.get(ranAttack(monList));
+			Unit pHeal = findLowHp();
 			if(sel == 1) {
-				Unit enemy = monList.get(ranAttack(monList));
 				player.attack(enemy);
-			}else if(sel == 2) {
-				
+			}else if(sel == 2) {	
+				if(player.getName().equals("힐러")) {
+					player.skill(pHeal);
+				}else
+					player.skill(enemy);
 			}
-			cnt++;
 			if(turnEnd(monList))
 				break;	
+			cnt++;
 		}
 	}
 	
@@ -189,8 +193,18 @@ public class StageBattle extends Stage{
 			if(!list.get(rATK).isDead())
 				return rATK;
 		}
+	}
+	
+	private Unit findLowHp() {
+		int low = 9999999;
+		for(int i=0; i<playerList.size(); i++) {
+			Unit unit = playerList.get(i);
+			if(unit.getHp() < low) {
+				low = i;
+			}
+		}
 		
-		
+		return playerList.get(low);
 	}
 	
 }
