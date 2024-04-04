@@ -8,17 +8,39 @@ public class Warrior extends Player{
 	public Warrior(String name, int level) {
 		super(name, level);
 		role = "전사";
+		init();
 	}
 
 	@Override
 	public void init() {
-		// TODO Auto-generated method stub
+		this.hp = 300;
+		this.maxHp = this.hp;
+		this.mp = 80;
+		this.maxMp = this.mp;
 		
+		this.power = 20;
+		this.magicPower = 10;
+		
+		this.defense = 10;
+		this.luck = 3;
+		this.dex = 3;
+		if(this.level != 1)
+			settingLevel();
 	}
 
 	@Override
 	protected void levelUp() {
+		this.level++;
+		this.maxHp += 15;
+		this.maxMp += 5;
+		this.power += 7;
+		this.magicPower += 3;
+		this.defense += 2;
 		
+		if(this.level%3 == 0) {
+			this.luck++;
+			this.dex++;
+		}
 	}
 	
 	@Override
@@ -29,8 +51,8 @@ public class Warrior extends Player{
 		// 스킬 구현
 		setMp(getMp()-20);
 		PrintText.printWarriorSkill();
-		
-		int damage = unit.getHp()-getPower()*3;
+		int attack = power*2 + magicPower;
+		int damage = unit.getHp()- attack;
 		
 		PrintText.delay200();
 		System.out.println("╔════════════════════════════════╗");
@@ -40,7 +62,7 @@ public class Warrior extends Player{
 		
 		PrintText.delay200();
 		System.out.println("╔════════════════════════════════╗");
-		System.out.printf( "║   전사가 %4s한테 %4d의 데미지	 ║\n", unit.getName(), getPower()*3);
+		System.out.printf( "║   전사가 %4s한테 %4d의 데미지	 ║\n", unit.name, attack);
 		System.out.println("╚════════════════════════════════╝");
 		unit.setHp(damage);
 		deadUnit(unit);
