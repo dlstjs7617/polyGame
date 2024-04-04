@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import polyGame.unit.Unit;
-import polyGame.unit.player.Player;
+import polyGame.unit.player.Healer;
+import polyGame.unit.player.Warrior;
+import polyGame.unit.player.Wizard;
 
 public class UnitManager {
 	
@@ -16,12 +18,9 @@ public class UnitManager {
 	private Random ran = new Random();
 	
 	public UnitManager() {
-		players.add(new Player("전사", 500, 200, 30, 1));
-		players.get(0).init(30, 5, 2);	// 방어력, 행운, 회피
-		players.add(new Player("마법사", 300, 500, 20, 1));
-		players.get(1).init(10, 7, 1);
-		players.add(new Player("힐러", 300, 200, 10, 1));
-		players.get(2).init(5, 10, 10);
+		players.add(new Warrior("김전사",1));
+		players.add(new Wizard("이법사", 1));
+		players.add(new Healer("박힐러", 1));
 	}
 	
 	public void ranSetMons(int size) {
@@ -52,9 +51,6 @@ public class UnitManager {
 			int luck = level/3;
 			int defense = level/5;
 			int dex = level/2;
-			unit.init(hp, mp, power, level);
-			unit.init(defense, luck, dex);
-			
 		}else if(unit.getName().equals("오크")) {
 			int hp = ran.nextInt(level * 10) + 200;
 			int mp = ran.nextInt(level * 5) + 70;
@@ -62,8 +58,6 @@ public class UnitManager {
 			int luck = level/5;
 			int defense = level/2;
 			int dex = level/10;
-			unit.init(hp, mp, power, level);
-			unit.init(defense, luck, dex);
 			
 		}else if(unit.getName().equals("슬라임")) {
 			int hp = ran.nextInt(level * 5) + 100;
@@ -72,8 +66,6 @@ public class UnitManager {
 			int luck = level/10;
 			int defense = level/10;
 			int dex = level/10;
-			unit.init(hp, mp, power, level);
-			unit.init(defense, luck, dex);
 			
 		}else if(unit.getName().equals("늑대")) {
 			int hp = ran.nextInt(level * 10) + 100;
@@ -82,8 +74,6 @@ public class UnitManager {
 			int luck =  level/3;
 			int defense = level/7;
 			int dex = level/10;
-			unit.init(hp, mp, power, level);
-			unit.init(defense, luck, dex);
 			
 		}
 		
