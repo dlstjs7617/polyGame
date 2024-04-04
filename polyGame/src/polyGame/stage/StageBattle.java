@@ -5,8 +5,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 import polyGame.GameManager;
-import polyGame.Unit.Unit;
-import polyGame.Unit.UnitManager;
+import polyGame.unit.Unit;
+import polyGame.unit.UnitManager;
 
 public class StageBattle extends Stage{
 	private UnitManager unitManager = new UnitManager();

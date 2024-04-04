@@ -1,8 +1,8 @@
-package polyGame.Unit;
+package polyGame.unit;
 
-public class UnitWolf extends Unit{
-	public UnitWolf() {
-		name = "늑대";
+public class UnitBat extends Unit{
+	public UnitBat() {
+		this.name = "박쥐";
 	}
 
 	@Override

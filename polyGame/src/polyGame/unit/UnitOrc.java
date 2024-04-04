@@ -1,8 +1,8 @@
-package polyGame.Unit;
+package polyGame.unit;
 
-public class UnitSlime extends Unit{
-	public UnitSlime() {
-		name = "슬라임";
+public class UnitOrc extends Unit{
+	public UnitOrc() {
+		name = "오크";
 	}
 
 	@Override
