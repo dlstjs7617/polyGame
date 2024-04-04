@@ -37,6 +37,10 @@ public abstract class Unit {
 	public Unit() {
 		
 	}
+	public Unit(int level) {
+		this.level = level;
+		this.maxExp = 40;
+	}
 	
 	public Unit(String name, int level) {
 		this.name = name;
@@ -112,9 +116,8 @@ public abstract class Unit {
 		this.isDead = isDead;
 	}
 	
-
-	
 	public abstract boolean skill(Unit unit);
+	protected abstract void levelUp();
 	
 	public void attack(Unit unit) {
 		
@@ -189,18 +192,25 @@ public abstract class Unit {
 	
 	private void checkExp() {
 		if(exp >= maxExp) {
-			++this.level;
+			levelUp();
 			System.out.println("╔════════════════════════════════╗");
 			System.out.println("\t" + "["+ this.name +"]가 레벨"+ this.level +"이 되었습니다. ");
 			System.out.println("╚════════════════════════════════╝");
 			exp -= 0;
 			maxExp += 20;
-			levelUp();
 		}
 		
 	}
+	
 
-	protected abstract void levelUp();
+	protected void settingLevel() {
+		int cnt = 1;
+		while(cnt != level) {
+			levelUp();
+		}
+	}
+	
+
 	
 }
 	
