@@ -7,13 +7,10 @@ public class Healer extends Player{
 
 	public Healer(String name, int level) {
 		super(name, level);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	protected void levelUp() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

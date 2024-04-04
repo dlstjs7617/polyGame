@@ -12,8 +12,6 @@ public abstract class Player extends Unit{
 
 	@Override
 	public void init() {
-		// TODO Auto-generated method stub
-		
 	}
 	
 	@Override

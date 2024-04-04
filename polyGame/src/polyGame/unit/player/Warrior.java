@@ -7,7 +7,6 @@ public class Warrior extends Player{
 
 	public Warrior(String name, int level) {
 		super(name, level);
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override

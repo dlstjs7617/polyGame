@@ -11,8 +11,6 @@ public class Wizard extends Player{
 	
 	@Override
 	protected void levelUp() {
-		// TODO Auto-generated method stub
-		
 	}
 	
 	public boolean skill(Unit unit) {
