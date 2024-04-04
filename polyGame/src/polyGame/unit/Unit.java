@@ -8,19 +8,30 @@ public abstract class Unit {
 	
 	public String name;
 	
-	protected int maxHp;
+	// 체력,마나
 	protected int hp;
-	protected int maxMp;
+	protected int maxHp;
 	protected int mp;
+	protected int maxMp;
+	
+	// 물리공격/마법공격
 	protected int power;
+	protected int magicPower;
+	
+	// 방어,치명,회피
 	protected int defense;
 	protected int luck;
 	protected int dex;
+	
+	// 레벨,경험치
 	protected int level;
 	protected int maxExp;
 	protected int exp;
 	
+	// 상태이상 true일시 한턴쉬기
 	protected boolean turn;
+	
+	// 사망처리 true일시 사망
 	protected boolean isDead;
 	
 	public Unit() {
@@ -30,7 +41,7 @@ public abstract class Unit {
 	public Unit(String name, int level) {
 		this.name = name;
 		this.level = level;
-		this.maxExp = 50;
+		this.maxExp = 40;
 	}
 
 	public abstract void init();
@@ -39,31 +50,18 @@ public abstract class Unit {
 		return this.name;
 	}
 	
-	public int getLevel() {
-		return this.level;
-	}
-	
-	
-	public boolean isTurn() {
-		return turn;
-	}
-
-	public void setTurn(boolean turn) {
-		this.turn = turn;
-	}
-
 	public int getMaxHp() {
 		return maxHp;
-	}
-	
-	public void setHp(int hp) {
-		this.hp = hp;
-		if(this.hp > this.maxHp)
-			this.hp = this.maxHp;
 	}
 
 	public int getHp() {
 		return hp;
+	}
+
+	public void setHp(int hp) {
+		this.hp = hp;
+		if(this.hp > this.maxHp)
+			this.hp = this.maxHp;
 	}
 
 	public int getMaxMp() {
@@ -86,6 +84,10 @@ public abstract class Unit {
 		return defense;
 	}
 
+	public int getLevel() {
+		return this.level;
+	}
+	
 	public int getMaxExp() {
 		return maxExp;
 	}
@@ -94,6 +96,14 @@ public abstract class Unit {
 		return exp;
 	}
 
+	public boolean isTurn() {
+		return turn;
+	}
+
+	public void setTurn(boolean turn) {
+		this.turn = turn;
+	}
+	
 	public boolean isDead() {
 		return isDead;
 	}
@@ -103,6 +113,7 @@ public abstract class Unit {
 	}
 	
 
+	
 	public abstract boolean skill(Unit unit);
 	
 	public void attack(Unit unit) {
@@ -182,7 +193,7 @@ public abstract class Unit {
 			System.out.println("╔════════════════════════════════╗");
 			System.out.println("\t" + "["+ this.name +"]가 레벨"+ this.level +"이 되었습니다. ");
 			System.out.println("╚════════════════════════════════╝");
-			exp -= maxExp;
+			exp -= 0;
 			maxExp += 20;
 			levelUp();
 		}

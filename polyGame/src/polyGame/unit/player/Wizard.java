@@ -12,7 +12,13 @@ public class Wizard extends Player{
 	@Override
 	protected void levelUp() {
 	}
-	
+
+	@Override
+	public void init() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	public boolean skill(Unit unit) {
 		if(!checkMana(40)) {
 			return false;
@@ -34,6 +40,5 @@ public class Wizard extends Player{
 		deadUnit(unit);
 		return true;
 	}
-
 
 }

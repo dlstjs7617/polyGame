@@ -10,7 +10,13 @@ public class Healer extends Player{
 	}
 
 	@Override
+	public void init() {
+	}
+
+	
+	@Override
 	protected void levelUp() {
+		
 	}
 
 	@Override
@@ -36,5 +42,4 @@ public class Healer extends Player{
 		return true;
 	}
 
-	
 }

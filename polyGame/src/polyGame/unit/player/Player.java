@@ -4,16 +4,19 @@ import polyGame.unit.Unit;
 
 public abstract class Player extends Unit{
 	
-	private String role;
+	protected String role;
 	
 	public Player(String name, int level) {
 		super(name,level);
 	}
 
 	@Override
-	public void init() {
-	}
+	public abstract void init();
 	
+	public String getRole() {
+		return role;
+	}
+
 	@Override
 	public boolean skill(Unit unit) {
 		return false;

@@ -4,11 +4,18 @@ import polyGame.PrintText;
 import polyGame.unit.Unit;
 
 public class Warrior extends Player{
-
+	
 	public Warrior(String name, int level) {
 		super(name, level);
+		role = "전사";
 	}
-	
+
+	@Override
+	public void init() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	@Override
 	protected void levelUp() {
 		
