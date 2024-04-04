@@ -2,6 +2,8 @@ package polyGame.unit;
 
 import java.util.Random;
 
+import polyGame.item.Item;
+
 public abstract class Unit {
 	
 	private Random ran = new Random();
@@ -33,6 +35,11 @@ public abstract class Unit {
 	
 	// 사망처리 true일시 사망
 	protected boolean isDead;
+	
+	// 장비
+	Item weapon;
+	Item Armor;
+	Item Ring;
 	
 	public Unit() {
 		
