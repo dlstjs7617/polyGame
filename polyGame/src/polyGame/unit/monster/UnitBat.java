@@ -1,4 +1,6 @@
-package polyGame.unit;
+package polyGame.unit.monster;
+
+import polyGame.unit.Unit;
 
 public class UnitBat extends Unit{
 	public UnitBat() {

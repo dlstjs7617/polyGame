@@ -2,7 +2,7 @@ package polyGame.stage;
 
 import polyGame.GameManager;
 import polyGame.PrintText;
-import polyGame.unit.UnitManager;
+import polyGame.unit.monster.UnitManager;
 
 public class StageVillage extends Stage{
 	

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import polyGame.GameManager;
 import polyGame.unit.Unit;
-import polyGame.unit.UnitManager;
+import polyGame.unit.monster.UnitManager;
 
 public class StageBattle extends Stage{
 	private UnitManager unitManager = new UnitManager();

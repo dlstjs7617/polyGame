@@ -1,6 +1,7 @@
-package polyGame.unit;
+package polyGame.unit.player;
 
 import polyGame.PrintText;
+import polyGame.unit.Unit;
 
 public class Player extends Unit{
 	public Player(String name, int hp, int mp, int power, int level) {

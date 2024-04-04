@@ -1,7 +1,10 @@
-package polyGame.unit;
+package polyGame.unit.monster;
 
 import java.util.ArrayList;
 import java.util.Random;
+
+import polyGame.unit.Unit;
+import polyGame.unit.player.Player;
 
 public class UnitManager {
 	
