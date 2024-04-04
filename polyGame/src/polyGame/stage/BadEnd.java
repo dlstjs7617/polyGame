@@ -1,6 +1,6 @@
 package polyGame.stage;
 
-public class StageBadEnd extends Stage{
+public class BadEnd extends Stage{
 
 	@Override
 	public boolean update() {

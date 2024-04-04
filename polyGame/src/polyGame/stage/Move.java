@@ -3,7 +3,7 @@ package polyGame.stage;
 import polyGame.GameManager;
 import polyGame.map.MapManager;
 
-public class StageMove extends Stage{
+public class Move extends Stage{
 
 	private MapManager map = MapManager.getInstance();
 	

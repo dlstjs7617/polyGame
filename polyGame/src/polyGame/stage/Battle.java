@@ -8,7 +8,7 @@ import polyGame.GameManager;
 import polyGame.unit.Unit;
 import polyGame.unit.UnitManager;
 
-public class StageBattle extends Stage{
+public class Battle extends Stage{
 	private UnitManager unitManager = new UnitManager();
 	private ArrayList<Unit> playerList = null;
 	private ArrayList<Unit> monList = null;

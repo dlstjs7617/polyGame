@@ -6,11 +6,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 import polyGame.stage.Stage;
-import polyGame.stage.StageBattle;
-import polyGame.stage.StageBoss;
-import polyGame.stage.StageLobby;
-import polyGame.stage.StageMove;
-import polyGame.stage.StageVillage;
+import polyGame.stage.Battle;
+import polyGame.stage.Boss;
+import polyGame.stage.Lobby;
+import polyGame.stage.Move;
+import polyGame.stage.Village;
 
 public class GameManager {
 	
@@ -28,12 +28,12 @@ public class GameManager {
 	public static int mpPotion = 0;
 	
 	public GameManager() {
-		stageList.put("Lobby", new StageLobby());
-		stageList.put("Battle", new StageBattle());
-		stageList.put("Move", new StageMove());
-		stageList.put("Village", new StageVillage());
-		stageList.put("Boss", new StageBoss());
-		stageList.put("BadEnd", new StageBoss());
+		stageList.put("Lobby", new Lobby());
+		stageList.put("Battle", new Battle());
+		stageList.put("Move", new Move());
+		stageList.put("Village", new Village());
+		stageList.put("Boss", new Boss());
+		stageList.put("BadEnd", new Boss());
 		
 		nextStage = "Lobby";
 	}

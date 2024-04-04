@@ -2,7 +2,7 @@ package polyGame.stage;
 
 import polyGame.GameManager;
 
-public class StageLobby extends Stage{
+public class Lobby extends Stage{
 
 	
 	

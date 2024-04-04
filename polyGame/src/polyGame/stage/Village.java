@@ -4,7 +4,7 @@ import polyGame.GameManager;
 import polyGame.PrintText;
 import polyGame.unit.UnitManager;
 
-public class StageVillage extends Stage{
+public class Village extends Stage{
 	
 	private int hpPotion = 400;
 	private int mpPotion = 500;
