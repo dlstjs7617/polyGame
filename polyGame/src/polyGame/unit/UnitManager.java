@@ -9,7 +9,7 @@ import polyGame.unit.player.Wizard;
 
 public class UnitManager {
 	
-	public static ArrayList<Unit> players = new ArrayList<Unit>();
+	public static ArrayList<Unit> players = null;
 	public static ArrayList<Unit> monster = new ArrayList<Unit>();
 	
 	private String path = "polyGame.unit.monster.";
@@ -17,9 +17,6 @@ public class UnitManager {
 	private Random ran = new Random();
 	
 	public UnitManager() {
-		players.add(new Warrior("김전사",1));
-		players.add(new Wizard("이법사", 1));
-		players.add(new Healer("박힐러", 1));
 	}
 	
 	public void ranSetMons(int size) {
