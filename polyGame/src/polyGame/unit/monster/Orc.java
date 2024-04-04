@@ -43,8 +43,6 @@ public class Orc extends Unit{
 		this.magicPower += 4;
 		this.defense += 3;
 		
-		if(this.level%2 == 0)
-		
 		if(this.level%3 == 0) {
 			this.dex++;
 			this.luck++;			

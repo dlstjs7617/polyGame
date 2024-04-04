@@ -120,11 +120,17 @@ public abstract class Unit {
 	protected abstract void levelUp();
 	
 	public void attack(Unit unit) {
+		int agi = unit.dex/luck;
+		int cri = unit.luck/dex;
+		boolean agility = false; 
+		boolean critical = false; 
+		if(agi > ran.nextInt(unit.dex)+unit.dex/2)
+			agility = true;
 		
-		boolean agility = ran.nextInt(3)+unit.dex > ran.nextInt(luck*3+1)+10 ? true : false;
-		boolean critical = ran.nextInt(luck+1) > unit.dex*3 ? true : false;
+		if(cri > ran.nextInt(unit.luck)+unit.dex/2)
+			critical = true;
 		
-		if(!agility && !critical) {
+		if(!agility && !critical || agility && critical) {
 			nomalAttack(unit);
 		}else if(critical) {
 			criticalAttack(unit);
@@ -137,36 +143,32 @@ public abstract class Unit {
 	}
 	
 	private void nomalAttack(Unit unit) {
+		int damage = power-unit.defense/3;
+		String temp = String.format("%s가 %s를 %d의 공격!", this.name, unit.getName(), damage);
+		
+		System.out.println("╔════════════════════════════════╗");
+		System.out.println("\t" + temp);
 		if(unit.defense < this.power) {
-			unit.hp -= this.power-unit.defense;
-			
-			String temp = String.format("%s가 %s를 %d의 공격!", this.name, unit.getName(), power-unit.defense);
-
-			System.out.println("╔════════════════════════════════╗");
-			System.out.println("\t" + temp);
-			System.out.println("╚════════════════════════════════╝");
-		}else if(unit.defense >= this.power){
-			System.out.println("╔════════════════════════════════╗");
+			unit.hp -= damage;			
+		}else if(damage < 0){
 			System.out.println("   "+unit.getName()+" 의 방어력이 높아 공격이 막혔다!");
-			System.out.println("╚════════════════════════════════╝");
 		}
+		System.out.println("╚════════════════════════════════╝");
 	}
 	
 	private void criticalAttack(Unit unit) {
-		int fullPower = power*2;
-		if(unit.defense < fullPower) {
-			unit.hp -= fullPower-unit.defense;
+		int fullPower = (power*2)-(unit.defense/2);
+		String temp = String.format("%s가 %s를 %d의 치명타 공격!", this.name, unit.getName(), fullPower);
 
-			String temp = String.format("%s가 %s를 %d의 치명타 공격!", this.name, unit.getName(), fullPower-unit.defense);
-			
-			System.out.println("╔════════════════════════════════╗");
-			System.out.println("    " + temp);
-			System.out.println("╚════════════════════════════════╝");
-		}else if(unit.defense >= fullPower){
-			System.out.println("╔════════════════════════════════╗");
+		System.out.println("╔════════════════════════════════╗");
+		System.out.println("    " + temp);
+		
+		if(unit.defense < fullPower) {
+			unit.hp -= fullPower;
+		}else if(fullPower < 0){
 			System.out.println("\t" + unit.getName()+" 의 급소를 맞췄지만 방어력이 높아 공격이 안들어갔다!.");
-			System.out.println("╚════════════════════════════════╝");
 		}
+		System.out.println("╚════════════════════════════════╝");
 	}
 
 	protected void deadUnit(Unit unit) {

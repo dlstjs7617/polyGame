@@ -29,7 +29,7 @@ public class UnitManager {
 			try {
 				int ranLevel = ran.nextInt(5)+avgLevel();
 				Class<?> clazz = Class.forName(path + mons[rNum]);
-				Object obj = clazz.getDeclaredConstructor().newInstance(ranLevel);
+				Object obj = clazz.getDeclaredConstructor(int.class).newInstance(ranLevel);
 				Unit unit = (Unit)obj;
 				
 				monster.add(unit);
@@ -40,8 +40,6 @@ public class UnitManager {
 		}
 	}
 	
-	
-	
 	private int avgLevel() {
 		int level = 1;
 		for(int i=0; i<players.size(); i++) {
@@ -50,6 +48,7 @@ public class UnitManager {
 		return level/players.size();
 	}
 	
+	// 나중에 마을로 옮길것
 	public static void allHeal() {
 		for(int i=0; i<players.size(); i++) {
 			Unit unit = players.get(i);
