@@ -4,8 +4,11 @@ import polyGame.PrintText;
 import polyGame.unit.Unit;
 
 public class Player extends Unit{
-	public Player(String name, int hp, int mp, int power, int level) {
-		super(name,hp,mp,power,level);
+	
+	private String role;
+	
+	public Player(String name, int level) {
+		super(name,level);
 	}
 
 	@Override

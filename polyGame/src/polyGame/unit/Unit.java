@@ -27,13 +27,8 @@ public abstract class Unit {
 		
 	}
 	
-	public Unit(String name, int hp, int mp, int power, int level) {
+	public Unit(String name, int level) {
 		this.name = name;
-		this.maxHp = hp;
-		this.hp = hp;
-		this.maxMp = mp;
-		this.mp = mp;
-		this.power = power;
 		this.level = level;
 		this.maxExp = 50;
 	}
