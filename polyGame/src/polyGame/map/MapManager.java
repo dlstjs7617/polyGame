@@ -1,8 +1,10 @@
-package polyGame;
+package polyGame.map;
 
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+
+import polyGame.GameManager;
 
 public class MapManager {
 	private final int SIZE = 10;

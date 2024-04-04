@@ -1,4 +1,6 @@
-package polyGame;
+package polyGame.stage;
+
+import polyGame.GameManager;
 
 public class StageLobby extends Stage{
 

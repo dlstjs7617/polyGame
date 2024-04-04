@@ -1,4 +1,7 @@
-package polyGame;
+package polyGame.stage;
+
+import polyGame.GameManager;
+import polyGame.map.MapManager;
 
 public class StageMove extends Stage{
 

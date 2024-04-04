@@ -1,4 +1,8 @@
-package polyGame;
+package polyGame.stage;
+
+import polyGame.GameManager;
+import polyGame.PrintText;
+import polyGame.Unit.UnitManager;
 
 public class StageVillage extends Stage{
 	

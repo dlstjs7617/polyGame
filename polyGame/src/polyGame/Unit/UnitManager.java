@@ -1,4 +1,4 @@
-package polyGame;
+package polyGame.Unit;
 
 import java.util.ArrayList;
 import java.util.Random;

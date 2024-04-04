@@ -5,6 +5,13 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
+import polyGame.stage.Stage;
+import polyGame.stage.StageBattle;
+import polyGame.stage.StageBoss;
+import polyGame.stage.StageLobby;
+import polyGame.stage.StageMove;
+import polyGame.stage.StageVillage;
+
 public class GameManager {
 	
 	Map<String,Stage> stageList = new HashMap<String, Stage>();

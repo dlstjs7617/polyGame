@@ -1,4 +1,4 @@
-package polyGame;
+package polyGame.map;
 
 public class DungeonMap {
 	private int encount;

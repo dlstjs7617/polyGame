@@ -1,4 +1,6 @@
-package polyGame;
+package polyGame.main;
+
+import polyGame.GameManager;
 
 public class Main {
 

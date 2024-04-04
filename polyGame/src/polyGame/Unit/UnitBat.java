@@ -1,4 +1,4 @@
-package polyGame;
+package polyGame.Unit;
 
 public class UnitBat extends Unit{
 	public UnitBat() {

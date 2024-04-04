@@ -1,8 +1,8 @@
-package polyGame;
+package polyGame.Unit;
 
-public class UnitOrc extends Unit{
-	public UnitOrc() {
-		name = "오크";
+public class UnitWolf extends Unit{
+	public UnitWolf() {
+		name = "늑대";
 	}
 
 	@Override

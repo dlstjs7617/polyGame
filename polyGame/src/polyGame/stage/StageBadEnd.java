@@ -1,4 +1,4 @@
-package polyGame;
+package polyGame.stage;
 
 public class StageBadEnd extends Stage{
 

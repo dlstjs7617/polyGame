@@ -1,8 +1,12 @@
-package polyGame;
+package polyGame.stage;
 
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+
+import polyGame.GameManager;
+import polyGame.Unit.Unit;
+import polyGame.Unit.UnitManager;
 
 public class StageBattle extends Stage{
 	private UnitManager unitManager = new UnitManager();
