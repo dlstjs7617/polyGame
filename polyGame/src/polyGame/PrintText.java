@@ -104,6 +104,8 @@ public class PrintText {
 				+ "  ⠘⠛⠛⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⠛⠛⠃⠀⠀⠀⠀⠀⠀⠀");
 	}
 	
+	
+	
 	public static void delay100() {
 		try {
 			Thread.sleep(100);

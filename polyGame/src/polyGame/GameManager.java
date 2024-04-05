@@ -23,9 +23,6 @@ public class GameManager {
 	public static String curStage = "";
 	
 	public static int floor = 1;
-	public static int money = 0;
-	public static int hpPotion = 0;
-	public static int mpPotion = 0;
 	
 	public GameManager() {
 		stageList.put("Lobby", new Lobby());

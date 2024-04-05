@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class ItemList {
 	
 	private ArrayList<Item> shopList = new ArrayList<Item>();
-	
 	public ItemList() {
 		setList();
 	}
@@ -20,7 +19,7 @@ public class ItemList {
 	}
 	
 	public ArrayList<Item> getShopList(){
-		return (ArrayList<Item>) shopList.clone();
+		return shopList;
 	}
 	
 	private void createSword() {
@@ -57,6 +56,13 @@ public class ItemList {
 		name = "드래곤 슬레이어";
 		status = 100;
 		price = 40000;
+		item = new Item(type, name, status, price);
+		shopList.add(item);
+		
+		type = 1;
+		name = "테스트용 돈털이아이템";
+		status = 100;
+		price = 1000000;
 		item = new Item(type, name, status, price);
 		shopList.add(item);
 	}
@@ -223,7 +229,7 @@ public class ItemList {
 		Item item = new Item(type, name, status, price);
 		shopList.add(item);
 		
-		type = 6;
+		type = 7;
 		name = "MP포션";
 		status = 50;
 		price = 200;

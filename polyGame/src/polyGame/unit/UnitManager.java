@@ -3,6 +3,7 @@ package polyGame.unit;
 import java.util.ArrayList;
 import java.util.Random;
 
+import polyGame.stage.Guild;
 import polyGame.unit.player.Healer;
 import polyGame.unit.player.Warrior;
 import polyGame.unit.player.Wizard;
@@ -15,8 +16,10 @@ public class UnitManager {
 	private String path = "polyGame.unit.monster.";
 	private String[] mons = { "Bat", "Orc", "Slime", "Wolf" };
 	private Random ran = new Random();
-	
+	private Guild guild;
 	public UnitManager() {
+		guild = new Guild();
+		players = guild.getPlayers();
 	}
 	
 	public void ranSetMons(int size) {

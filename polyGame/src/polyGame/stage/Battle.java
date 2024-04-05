@@ -46,7 +46,7 @@ public class Battle extends Stage{
 				return false;
 			}else if(turnEnd(monList)) {
 				int money = ran.nextInt(300)+1 +(GameManager.floor * 30);
-				GameManager.money += money;
+				Guild.money += money;
 
 				System.out.println("╔════════════════════════════════╗");
 				System.out.println("\t    💰 " + money +"골드 획득");
