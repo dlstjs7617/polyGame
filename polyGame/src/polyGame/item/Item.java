@@ -21,5 +21,32 @@ public class Item {
 		this.status = status;
 		this.price = price;
 	}
+	
+	public int getType() {
+		return type;
+	}
 
+	public String getName() {
+		return name;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+	
+	public int getEa() {
+		return ea;
+	}
+
+	public void setEa(int ea) {
+		this.ea = ea;
+	}
+
+
+	
+	
 }
