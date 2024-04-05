@@ -15,6 +15,8 @@ public class ItemList {
 		createSatff();
 		createWand();
 		createArmor();
+		createRing();
+		createPotion();
 	}
 	
 	public ArrayList<Item> getShopList(){
@@ -209,6 +211,26 @@ public class ItemList {
 		price = 40000;
 		item = new Item(type, name, status, price);
 		shopList.add(item);
+	}
+	
+
+	private void createPotion() {
+		int type = 6;
+		String name = "HP포션";
+		int status = 50;
+		int price = 150;
+		
+		Item item = new Item(type, name, status, price);
+		shopList.add(item);
+		
+		type = 6;
+		name = "MP포션";
+		status = 50;
+		price = 200;
+		item = new Item(type, name, status, price);
+		shopList.add(item);
+		
+	
 	}
 	
 }
