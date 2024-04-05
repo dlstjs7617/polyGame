@@ -32,7 +32,9 @@ public class Warrior extends Player{
 	protected void levelUp() {
 		this.level++;
 		this.maxHp += 15;
+		this.hp += 7;
 		this.maxMp += 5;
+		this.mp += 10;
 		this.power += 7;
 		this.magicPower += 3;
 		this.defense += 2;

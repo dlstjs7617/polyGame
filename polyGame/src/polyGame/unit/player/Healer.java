@@ -35,7 +35,9 @@ public class Healer extends Player{
 	protected void levelUp() {
 		this.level++;
 		this.maxHp += 7;
+		this.hp += 7;
 		this.maxMp += 10;
+		this.mp += 10;
 		this.power += 5;
 		this.magicPower += 5;
 		this.defense += 2;

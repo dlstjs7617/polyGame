@@ -33,7 +33,9 @@ public class Wizard extends Player{
 	protected void levelUp() {
 		this.level++;
 		this.maxHp += 10;
+		this.hp += 7;
 		this.maxMp += 10;
+		this.mp += 10;
 		this.power += 5;
 		this.magicPower += 7;
 		this.defense += 2;

@@ -37,7 +37,9 @@ public class Wolf extends Unit{
 	protected void levelUp() {
 		this.level++;
 		this.maxHp += 7;
+		this.hp += 7;
 		this.maxMp += 10;
+		this.mp += 10;
 		this.power += 3;
 		this.magicPower += 5;
 		this.defense += 2;

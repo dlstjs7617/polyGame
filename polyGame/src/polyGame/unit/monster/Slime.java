@@ -38,7 +38,9 @@ public class Slime extends Unit{
 	protected void levelUp() {
 		this.level++;
 		this.maxHp += 10;
+		this.hp += 7;
 		this.maxMp += 10;
+		this.mp += 10;
 		this.power += 2;
 		this.magicPower += 2;
 		this.defense += 2;

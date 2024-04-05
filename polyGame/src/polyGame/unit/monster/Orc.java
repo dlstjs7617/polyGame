@@ -38,7 +38,9 @@ public class Orc extends Unit{
 	protected void levelUp() {
 		this.level++;
 		this.maxHp += 10;
+		this.hp += 7;
 		this.maxMp += 10;
+		this.mp += 10;
 		this.power += 4;
 		this.magicPower += 4;
 		this.defense += 3;
