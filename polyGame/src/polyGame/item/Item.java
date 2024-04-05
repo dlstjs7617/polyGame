@@ -1,20 +1,22 @@
 package polyGame.item;
 
 public class Item {
-	static final int WEAPON = 1; // 무기
-	static final int ARMOR = 2; // 갑옷
-	static final int RING = 3; // 장신구
-	static final int POTION = 4; // 포션
+	static final int SWORD = 1; // 검(전사)
+	static final int SATFF = 2; // 스태프(마법사)
+	static final int WAND = 3; // 완드(힐러)
+	static final int ARMOR = 4; // 갑옷
+	static final int RING = 5; // 장신구
+	static final int POTION = 6; // 포션
 	
-	int kind; // 종류
+	int type; // 타입
 	String name; // 이름
 	int status; // 능력
 	int price; // 가격
 	int ea;	   // 수량
 	
 	// 아이템 설정 메서드
-	public void setItem(int kind, String name, int status, int price) {
-		this.kind = kind;
+	public Item(int type, String name, int status, int price) {
+		this.type = type;
 		this.name = name;
 		this.status = status;
 		this.price = price;
