@@ -25,7 +25,7 @@ public class Village extends Stage{
 				continue;
 			
 			if(sel == GUILD) {
-				;
+				guild.run();;
 			}else if(sel == SHOP) {
 				shop.shopRun();
 			}else if(sel == LEAVE) {
