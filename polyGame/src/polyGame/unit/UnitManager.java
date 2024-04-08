@@ -34,7 +34,7 @@ public class UnitManager {
 			int rNum = ran.nextInt(mons.length);
 			
 			try {
-				int ranLevel = ran.nextInt(5)+avgLevel()+1;
+				int ranLevel = ran.nextInt(3)+avgLevel();
 				System.out.println(ranLevel);
 				Class<?> clazz = Class.forName(path + mons[rNum]);
 				Object obj = clazz.getDeclaredConstructor(int.class).newInstance(ranLevel);
@@ -58,8 +58,12 @@ public class UnitManager {
 	
 	public void printUnit(Unit unit) {
 		String name = unit.isDead() == true ? "💀"+unit.getName(): unit.getName();
-		String temp = String.format("║[Lv.%2d %4s ♥[%3d/%3d] 💧[%3d/%3d](🗡%3d🛡%3d)]",
-				unit.getLevel(), name, unit.getHp(), unit.getMaxHp(), unit.getMp(), unit.getMaxMp(), unit.getPower(), unit.getDefense());
+		String weaponStat = unit.getWeapon() == null ? "" : "+("+ unit.getWeapon().getStatus()+")"; 
+		String armorStat = unit.getArmor() == null ? "" : "+("+ unit.getArmor().getStatus()+")";
+		
+		String temp = String.format("║[Lv.%2d %4s ♥[%3d/%3d] 💧[%3d/%3d](🗡%3d%s🛡%3d%s)]",
+				unit.getLevel(), name, unit.getHp(), unit.getMaxHp(), unit.getMp(), unit.getMaxMp(),
+				unit.getPower(), weaponStat, unit.getDefense(), armorStat);
 		System.out.println(temp);
 	}
 	
@@ -67,10 +71,13 @@ public class UnitManager {
 		Player player = (Player)unit;
 		String role = player.getRole();
 		String name = unit.isDead() == true ? "💀"+unit.getName(): unit.getName();
-		
-		String temp = String.format("║%d.[Lv.%2d %4s(%3s) ♥[%3d/%3d] 💧[%3d/%3d] \n║   (🗡%3d🛡%3d)] [🏃‍♂️:%2d/🍀%2d] 파티여부 : %s",
-				idx ,unit.getLevel(), name, role, unit.getHp(), unit.getMaxHp(), unit.getMp(), unit.getMaxMp(), unit.getPower(),
-				unit.getDefense(), unit.getDex(), unit.getLuck(), unit.isParty());
+		String weaponStat = unit.getWeapon() == null ? "" : "+("+ unit.getWeapon().getStatus()+")"; 
+		String armorStat = unit.getArmor() == null ? "" : "+("+ unit.getArmor().getStatus()+")";
+		String ringStat = unit.getWeapon() == null ? "" : "+("+ unit.getWeapon().getStatus()+")"; 
+
+		String temp = String.format("║%d.[Lv.%2d %4s(%3s) ♥[%3d/%3d] 💧[%3d/%3d] \n║   (🗡%3d%s🛡%3d%s)] [🏃‍♂️:%2d/🍀%2d%s] 파티여부 : %s",
+				idx ,unit.getLevel(), name, role, unit.getHp(), unit.getMaxHp(), unit.getMp(), unit.getMaxMp(),
+				unit.getPower(), weaponStat, unit.getDefense(), armorStat, unit.getDex(), unit.getLuck(), ringStat, unit.isParty());
 		System.out.println(temp);
 	}
 	
