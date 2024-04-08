@@ -10,12 +10,8 @@ public class Village extends Stage{
 	private final int GUILD = 1;
 	private final int SHOP = 2;
 	
-	private int hpPotion = 400;
-	private int mpPotion = 500;
-	
 	private Shop shop = new Shop();
-	private Guild guild = new Guild();
-	
+	private Guild guild = Guild.getInstance();
 	@Override
 	public boolean update() {
 		while(true) {
@@ -25,7 +21,7 @@ public class Village extends Stage{
 				continue;
 			
 			if(sel == GUILD) {
-				guild.run();;
+				guild.run();
 			}else if(sel == SHOP) {
 				shop.shopRun();
 			}else if(sel == LEAVE) {

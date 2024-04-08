@@ -11,6 +11,7 @@ import polyGame.stage.Boss;
 import polyGame.stage.Lobby;
 import polyGame.stage.Move;
 import polyGame.stage.Village;
+import polyGame.unit.UnitManager;
 
 public class GameManager {
 	
@@ -18,6 +19,7 @@ public class GameManager {
 
 	public static Scanner sc = new Scanner(System.in);
 	public static Random ran = new Random();
+	public static UnitManager unitManager = UnitManager.getUnitManager(); 
 	public static PrintText text = new PrintText();
 	public static String nextStage = "";
 	public static String curStage = "";

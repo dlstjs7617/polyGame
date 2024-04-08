@@ -37,8 +37,8 @@ public class Guild{
 	private final int RING = 3;
 	
 	private static ArrayList<Unit> players = new ArrayList<Unit>();
-	private UnitManager unitManager = UnitManager.getUnitManager();
-
+	
+	private static Guild instance = new Guild();
 
 	
 	private final int NAME_SIZE = 10;
@@ -49,16 +49,18 @@ public class Guild{
 	private String[] n2 = {"동","지","현","영","미","서","하","예","은","공",};
 	private String[] n3 = {"준","안","연","자","아","윤","현","원","우","명",};
 	
-	
-	
-	public Guild() {
-		players.add(new Warrior("김전사",12));
+	private Guild() {
+		players.add(new Warrior("김전사",1));
 		players.get(0).setParty(true);
-		players.add(new Wizard("이법사", 12));
+		players.add(new Wizard("이법사", 1));
 		players.get(1).setParty(true);
-		players.add(new Healer("박힐러", 12));
+		players.add(new Healer("박힐러", 1));
 		players.get(2).setParty(true);
 		count = 3;
+	}
+	
+	public static Guild getInstance() {
+		return instance;
 	}
 	
 	public static ArrayList<Unit> getPlayers(){
@@ -80,7 +82,7 @@ public class Guild{
 		System.out.println("╔═════════════════════════════════════════════════════════════╗");
 		for(int i=0; i<players.size(); i++) {
 			Unit unit = players.get(i);
-			unitManager.printPlayer(unit, i+1);
+			UnitManager.printPlayer(unit, i+1);
 		}
 		System.out.println("╚═════════════════════════════════════════════════════════════╝");
 	}
@@ -108,6 +110,7 @@ public class Guild{
 			int idx = GameManager.inputNumber("파티 편성선택")-1;
 			if(idx < 0 || idx >= players.size()) {
 				System.err.println("유효하지 않은 길드원");
+				return;
 			}
 			selectPartyProcess(idx);
 	}
@@ -173,6 +176,7 @@ public class Guild{
 		
 		players.remove(idx);
 		System.out.println("길드원을 추방하고 " + money +"의 돈을 뺏었습니다.");
+		count--;
 		
 	}
 	
@@ -230,7 +234,7 @@ public class Guild{
 		}
 		
 		Player unit = (Player)players.get(idx);
-		unitManager.printPlayerStatus(unit);
+		UnitManager.printPlayerStatus(unit);
 		
 		System.out.println("변경할 부위 선택");
 		System.out.println("1.무기 2.방어구 3.반지 4.나가기");

@@ -11,16 +11,16 @@ import polyGame.unit.player.Wizard;
 
 public class UnitManager {
 	
-	public static ArrayList<Unit> players = null;
+	public static ArrayList<Unit> players = Guild.getPlayers();
 	public static ArrayList<Unit> monster = new ArrayList<Unit>();
 	
 	private String path = "polyGame.unit.monster.";
 	private String[] mons = { "Bat", "Orc", "Slime", "Wolf" };
 	private Random ran = new Random();
-	private Guild guild;
+	private Guild guild = Guild.getInstance();
+	
 	private UnitManager() {
-		guild = new Guild();
-		players = guild.getPlayers();
+		
 	}
 	
 	private static UnitManager unitManager = new UnitManager();
@@ -67,13 +67,13 @@ public class UnitManager {
 		System.out.println(temp);
 	}
 	
-	public void printPlayer(Unit unit, int idx) {
+	public static void printPlayer(Unit unit, int idx) {
 		Player player = (Player)unit;
 		String role = player.getRole();
 		String name = unit.isDead() == true ? "💀"+unit.getName(): unit.getName();
 		String weaponStat = unit.getWeapon() == null ? "" : "+("+ unit.getWeapon().getStatus()+")"; 
 		String armorStat = unit.getArmor() == null ? "" : "+("+ unit.getArmor().getStatus()+")";
-		String ringStat = unit.getWeapon() == null ? "" : "+("+ unit.getWeapon().getStatus()+")"; 
+		String ringStat = unit.getRing() == null ? "" : "+("+ unit.getRing().getStatus()+")"; 
 
 		String temp = String.format("║%d.[Lv.%2d %4s(%3s) ♥[%3d/%3d] 💧[%3d/%3d] \n║   (🗡%3d%s🛡%3d%s)] [🏃‍♂️:%2d/🍀%2d%s] 파티여부 : %s",
 				idx ,unit.getLevel(), name, role, unit.getHp(), unit.getMaxHp(), unit.getMp(), unit.getMaxMp(),
@@ -81,7 +81,7 @@ public class UnitManager {
 		System.out.println(temp);
 	}
 	
-	public void printPlayerStatus(Unit unit) {
+	public static void printPlayerStatus(Unit unit) {
 		Player player = (Player)unit;
 		String role = player.getRole();
 		
