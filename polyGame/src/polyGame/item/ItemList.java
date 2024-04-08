@@ -229,7 +229,7 @@ public class ItemList {
 		Item item = new Item(type, name, status, price);
 		shopList.add(item);
 		
-		type = 7;
+		type = 6;
 		name = "MP포션";
 		status = 50;
 		price = 200;
