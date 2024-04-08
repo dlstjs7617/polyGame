@@ -22,6 +22,7 @@ public class Guild{
 	
 	private ArrayList<Unit> players = new ArrayList<Unit>();
 	public static int money = 1000000;
+	private int count;
 	
 	public Guild() {
 		players.add(new Warrior("김전사",1));
@@ -30,6 +31,7 @@ public class Guild{
 		players.get(1).setParty(true);
 		players.add(new Healer("박힐러", 1));
 		players.get(2).setParty(true);
+		count = 3;
 	}
 	
 	public  ArrayList<Unit> getPlayers(){
@@ -41,25 +43,46 @@ public class Guild{
 		System.out.println("║          [🌟 길드 메뉴 🌟]	    	║");
 		System.out.println("╠═══════════════════════════════════════╣");
 		System.out.println("║    🛡️1.파티 편성 	🤝2.길드원 모집	║");
-		System.out.println("║    ❌3.길드 추방 	🎒4. 인벤토리	║");
+		System.out.println("║    ❌3.길드 추방 	🎒4.인벤토리 	║");
 		System.out.println("║    🗡5.파티원 장비	🚪0.나가기		║");
 		System.out.println("╚═══════════════════════════════════════╝");
 		
 	}
 	
 	private void printUnit() {
-		System.out.println("╔═══════════════════════════════════════╗");
+		System.out.println("╔═════════════════════════════════════════════════════════════╗");
 		for(int i=0; i<players.size(); i++) {
 			Unit unit = players.get(i);
-			unit.printUnit(unit);
+			unit.printPlayer(unit, i+1);
 		}
-		System.out.println("╚═══════════════════════════════════════╝");
+		System.out.println("╚═════════════════════════════════════════════════════════════╝");
+	}
+	
+	private void selectPartyProcess(int idx) {
+		Unit unit = players.get(idx);
+		if(!unit.isParty() && PARTY_SIZE == count) {
+			System.err.println("최대 편성중이라 불가능합니다.");
+			return;
+		}
+		
+		if(!unit.isParty()) {
+			unit.setParty(true);
+			count++;
+			System.out.println("파티원 추가완료");
+		}else if(unit.isParty()) {
+			unit.setParty(false);
+			count--;
+			System.out.println("파티원 해제완료");
+		}
 	}
 	
 	private void selectParty() {
-		while(true) {
 			printUnit();
-		}
+			int idx = GameManager.inputString("파티 편성선택")-1;
+			if(idx < 0 || idx >= players.size()) {
+				System.err.println("유효하지 않은 길드원");
+			}
+			selectPartyProcess(idx);
 	}
 	
 	public void run() {
@@ -69,6 +92,10 @@ public class Guild{
 			int sel = GameManager.inputString("선택");
 			
 			if(sel == LEAVE) {
+				if(count == 0) {
+					System.err.println("현재 파티가 0명입니다. 한명이상 편성해야합니다.");
+					continue;
+				}
 				break;				
 			}else if(sel == SELETCT) {
 				selectParty();
