@@ -1,5 +1,7 @@
 package polyGame;
 
+import polyGame.unit.Unit;
+
 public class PrintText {
 	public static final String ANSI_RESET = "\u001B[0m";
 	public static final String ANSI_CYAN = "\u001B[36m";
@@ -120,6 +122,19 @@ public class PrintText {
 				+ "⠀⣟⢜⢍⣗⢕⢕⢕⢕⢕⡏⡎⢎⡷⡹⡸⣽⢽⡽⣺⣷⣳⣻⣏⡧\r\n"
 				+ "⠀⣗⣔⣕⣗⣕⣕⣵⣱⣹⣗⣜⣔⣯⣢⣪⣚⣫⣛⣝⣓⣛⣪⣓⡇\r\n"
 				+ "");
+	}
+	
+	public static void printBattleMenu(Unit player) {
+		System.out.println("╔════════════════════════════════╗");
+		System.out.printf("║           %3s의 턴		 ║\n",player.name);
+		System.out.println("╠════════════════════════════════╣");
+		System.out.println("║🔹 선택할 행동:			 ║");
+		System.out.println("║1.⚔️공격				 ║");
+		System.out.println("║2.🌀스킬				 ║");
+		System.out.println("║3.🎒가방				 ║");
+		System.out.println("╠════════════════════════════════╣");
+		System.out.println("║원하는 행동을 선택하세요.		 ║");
+		System.out.println("╚════════════════════════════════╝");
 	}
 	
 	public static void delay100() {
