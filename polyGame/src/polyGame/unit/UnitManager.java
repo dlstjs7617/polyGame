@@ -56,16 +56,6 @@ public class UnitManager {
 		return level/players.size();
 	}
 	
-	// 나중에 마을로 옮길것
-	public static void allHeal() {
-		for(int i=0; i<players.size(); i++) {
-			Unit unit = players.get(i);
-			unit.setHp(unit.getMaxHp());
-			unit.setMp(unit.getMaxMp());
-		}
-	}
-	
-
 	public void printUnit(Unit unit) {
 		String name = unit.isDead() == true ? "💀"+unit.getName(): unit.getName();
 		String temp = String.format("║[Lv.%2d %4s ♥[%3d/%3d] 💧[%3d/%3d](🗡%3d🛡%3d)]",
