@@ -159,26 +159,12 @@ public class Battle extends Stage{
 		System.out.println("╚════════════════════════════════╝");
 	}
 	
-	private void printUnit(Unit unit) {
-		int level = unit.getLevel();
-		String name = unit.isDead() == true ? "💀"+unit.getName(): unit.getName();
-		int hp = unit.getHp();
-		int maxHp = unit.getMaxHp();
-		int mp = unit.getMp();
-		int maxMp = unit.getMaxMp();
-		int power = unit.getPower();
-		int defense = unit.getDefense();
-		
-		String temp = String.format("║[Lv.%2d %4s ♥[%3d/%3d] 💧[%3d/%3d](🗡%3d🛡%3d)]", level, name, hp, maxHp, mp, maxMp, power, defense);
-		System.out.println(temp);
-	}
-	
 	private void printPlayer() {
 
 		System.out.println("╔════════════════════════════════════════════════════╗");
 		for(int i=0; i<playerList.size(); i++) {
 			Unit unit = playerList.get(i);
-			printUnit(unit);
+			unit.printUnit(unit);
 			
 		}
 		System.out.println("╚════════════════════════════════════════════════════╝");
@@ -188,7 +174,7 @@ public class Battle extends Stage{
 		System.out.println("╔════════════════════════════════════════════════════╗");
 		for(int i=0; i<monList.size(); i++) {
 			Unit unit = monList.get(i);
-			printUnit(unit);
+			unit.printUnit(unit);
 		}
 		System.out.println("╚════════════════════════════════════════════════════╝");
 	}

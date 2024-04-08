@@ -36,6 +36,9 @@ public abstract class Unit {
 	// 사망처리 true일시 사망
 	protected boolean isDead;
 	
+	// 파티 참여 여부 true -> 참여
+	protected boolean party;
+	
 	// 장비
 	Item weapon;
 	Item Armor;
@@ -121,6 +124,13 @@ public abstract class Unit {
 	
 	public void setDead(boolean isDead) {
 		this.isDead = isDead;
+	}
+	
+	public boolean isParty() {
+		return party;
+	}
+	public void setParty(boolean party) {
+		this.party = party;
 	}
 	
 	public abstract boolean skill(Unit unit);
@@ -211,6 +221,20 @@ public abstract class Unit {
 		
 	}
 	
+	public void printUnit(Unit unit) {
+		int level = unit.getLevel();
+		String name = unit.isDead() == true ? "💀"+unit.getName(): unit.getName();
+		int hp = unit.getHp();
+		int maxHp = unit.getMaxHp();
+		int mp = unit.getMp();
+		int maxMp = unit.getMaxMp();
+		int power = unit.getPower();
+		int defense = unit.getDefense();
+		
+		String temp = String.format("║[Lv.%2d %4s ♥[%3d/%3d] 💧[%3d/%3d](🗡%3d🛡%3d)]", level, name, hp, maxHp, mp, maxMp, power, defense);
+		System.out.println(temp);
+	}
+	
 
 	protected void settingLevel() {
 		int cnt = 1;
@@ -218,8 +242,5 @@ public abstract class Unit {
 			levelUp();
 		}
 	}
-	
-
-	
 }
 	

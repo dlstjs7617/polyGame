@@ -157,7 +157,7 @@ public class Shop {
 	}
 	private void printNPC() {
 		NPCDot();
-	    System.out.println("║ 어서오세요, 냥캣상점입니다.		 ║");
+	    System.out.println("║ 어서오세요,  냥캣🐾상점입니다.	 ║");
 	    System.out.println("║ 던전에서 나온 전리품을 사거나.	 ║");
 	    System.out.println("║ 탐험에 필요한 아이템을 팔고있어요	 ║");
 	    System.out.println("║ 팔고있어요 어떤 일로 오셨나요?	 ║");
