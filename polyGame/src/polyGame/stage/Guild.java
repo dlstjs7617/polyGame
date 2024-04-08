@@ -265,6 +265,14 @@ public class Guild{
 		
 		
 	}
+	private void allHeal() {
+		for(int i=0; i<players.size(); i++) {
+			Unit unit = players.get(i);
+			unit.setHp(unit.getMaxHp());
+			unit.setMp(unit.getMaxMp());
+		}
+		System.out.println("길드에서 휴식해 회복되었다.");
+	}
 	
 	public void run() {
 		while(true) {
@@ -276,8 +284,10 @@ public class Guild{
 				if(count == 0) {
 					System.err.println("현재 파티가 0명입니다. 한명이상 편성해야합니다.");
 					continue;
+				}else {
+					allHeal();
+					break;				
 				}
-				break;				
 			}else if(sel == SELETCT) {
 				selectParty();
 			}else if(sel == JOIN) {
