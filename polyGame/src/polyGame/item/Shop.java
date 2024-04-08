@@ -22,8 +22,7 @@ public class Shop {
 	private final int WAND = 3;
 	private final int ARMOR = 4;
 	private final int RING = 5;
-	private final int HPPOTION = 6;
-	private final int MPPOTION = 7;
+	private final int POTION = 6;
 	
 	private ItemList list = new ItemList();
 	private Inventory inventory = Inventory.getInstance();
@@ -100,7 +99,7 @@ public class Shop {
 	}
 	
 	private void printPotion() {
-		buyItem(HPPOTION);
+		buyItem(POTION);
 	}
 	
 	private ArrayList<Integer> printItem(int type) {
