@@ -36,10 +36,10 @@ public class Guild{
 	private final int ARMOR = 2;
 	private final int RING = 3;
 	
-	private ArrayList<Unit> players = new ArrayList<Unit>();
-	private Inventory inventory = Inventory.getInstance();
-	private ArrayList<Item> itemList = inventory.getItemList();
+	private static ArrayList<Unit> players = new ArrayList<Unit>();
 	private UnitManager unitManager = UnitManager.getUnitManager();
+
+
 	
 	private final int NAME_SIZE = 10;
 	private int count;
@@ -61,7 +61,7 @@ public class Guild{
 		count = 3;
 	}
 	
-	public  ArrayList<Unit> getPlayers(){
+	public static ArrayList<Unit> getPlayers(){
 		return players;
 	}
 	
@@ -177,7 +177,7 @@ public class Guild{
 	}
 	
 	private void printInventory() {
-		inventory.printItemList();
+		Inventory.printItemList();
 	}
 	
 	private int type(Player unit) {
@@ -202,21 +202,21 @@ public class Guild{
 	}
 	
 	private void putOn(Player unit,int type) {
-		ArrayList<Integer> list = inventory.selectItemList(type);
+		ArrayList<Integer> list = Inventory.selectItemList(type);
 		int itemIdx = GameManager.inputNumber("선택")-1; 
 		if(itemIdx < 0 || itemIdx >= list.size()) {
 			System.err.println("없는 아이템");
 			return;
 		}
-		Item item = itemList.get(list.get(itemIdx));
+		Item item = Inventory.itemList.get(list.get(itemIdx));
 		setItem(unit, item, type);
-		itemList.remove(item);
+		Inventory.itemList.remove(item);
 
 	}
 	
 	private void putOff(Player unit,int type) {
 		Item item = unit.getWeapon();
-		itemList.add(item);
+		Inventory.itemList.add(item);
 		setItem(unit, null, type);
 	}
 	
