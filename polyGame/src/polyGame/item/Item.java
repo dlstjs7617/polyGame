@@ -6,8 +6,7 @@ public class Item {
 	static final int WAND = 3; // 완드(힐러)
 	static final int ARMOR = 4; // 갑옷
 	static final int RING = 5; // 장신구
-	static final int HPPOTION = 6; // 포션
-	static final int MPPOTION = 7; // 포션
+	static final int POTION = 6; // 포션
 	
 	private int type; // 타입
 	private String name; // 이름
@@ -56,7 +55,7 @@ public class Item {
 			message = "방어";
 		else if(type == RING)
 			message = "행운";
-		else if(type >= HPPOTION)
+		else if(type >= POTION)
 			message = "회복";
 		
 			
