@@ -5,6 +5,7 @@ import polyGame.unit.Unit;
 public class Wolf extends Unit{
 	public Wolf(int level) {
 		name = "늑대";
+		this.level = level;
 		init();
 	}
 
@@ -35,7 +36,6 @@ public class Wolf extends Unit{
 
 	@Override
 	protected void levelUp() {
-		this.level++;
 		this.maxHp += 7;
 		this.hp += 7;
 		this.maxMp += 10;

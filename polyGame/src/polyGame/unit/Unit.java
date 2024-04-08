@@ -1,12 +1,11 @@
 package polyGame.unit;
 
-import java.util.Random;
-
+import polyGame.GameManager;
 import polyGame.item.Item;
+import polyGame.unit.player.Player;
 
 public abstract class Unit {
 	
-	private Random ran = new Random();
 	
 	public String name;
 	
@@ -41,8 +40,8 @@ public abstract class Unit {
 	
 	// 장비
 	Item weapon;
-	Item Armor;
-	Item Ring;
+	Item armor;
+	Item ring;
 	
 	public Unit() {
 		
@@ -98,6 +97,13 @@ public abstract class Unit {
 		return defense;
 	}
 
+	public int getLuck() {
+		return luck;
+	}
+	public int getDex() {
+		return dex;
+	}
+	
 	public int getLevel() {
 		return this.level;
 	}
@@ -129,8 +135,28 @@ public abstract class Unit {
 	public boolean isParty() {
 		return party;
 	}
+	
 	public void setParty(boolean party) {
 		this.party = party;
+	}
+	
+	public Item getWeapon() {
+		return weapon;
+	}
+	public void setWeapon(Item weapon) {
+		this.weapon = weapon;
+	}
+	public Item getArmor() {
+		return armor;
+	}
+	public void setArmor(Item armor) {
+		this.armor = armor;
+	}
+	public Item getRing() {
+		return ring;
+	}
+	public void setRing(Item ring) {
+		this.ring = ring;
 	}
 	
 	public abstract boolean skill(Unit unit);
@@ -141,10 +167,10 @@ public abstract class Unit {
 		int cri = unit.luck/dex;
 		boolean agility = false; 
 		boolean critical = false; 
-		if(agi > ran.nextInt(unit.dex)+unit.dex/2)
+		if(agi >GameManager.ran.nextInt(unit.dex)+unit.dex/2)
 			agility = true;
 		
-		if(cri > ran.nextInt(unit.luck)+unit.dex/2)
+		if(cri >GameManager.ran.nextInt(unit.luck)+unit.dex/2)
 			critical = true;
 		
 		if(!agility && !critical || agility && critical) {
@@ -211,6 +237,7 @@ public abstract class Unit {
 	
 	private void checkExp() {
 		if(exp >= maxExp) {
+			this.level++;
 			levelUp();
 			System.out.println("╔════════════════════════════════╗");
 			System.out.println("\t" + "["+ this.name +"]가 레벨"+ this.level +"이 되었습니다. ");
@@ -220,25 +247,11 @@ public abstract class Unit {
 		}
 		
 	}
-	
-	public void printUnit(Unit unit) {
-		int level = unit.getLevel();
-		String name = unit.isDead() == true ? "💀"+unit.getName(): unit.getName();
-		int hp = unit.getHp();
-		int maxHp = unit.getMaxHp();
-		int mp = unit.getMp();
-		int maxMp = unit.getMaxMp();
-		int power = unit.getPower();
-		int defense = unit.getDefense();
-		
-		String temp = String.format("║[Lv.%2d %4s ♥[%3d/%3d] 💧[%3d/%3d](🗡%3d🛡%3d)]", level, name, hp, maxHp, mp, maxMp, power, defense);
-		System.out.println(temp);
-	}
-	
 
 	protected void settingLevel() {
+		int stop = level;
 		int cnt = 1;
-		while(cnt != level) {
+		while(cnt++ <= stop) {
 			levelUp();
 		}
 	}

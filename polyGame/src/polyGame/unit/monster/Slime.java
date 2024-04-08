@@ -5,6 +5,7 @@ import polyGame.unit.Unit;
 public class Slime extends Unit{
 	public Slime(int level) {
 		name = "슬라임";
+		this.level = level;
 		init();
 	}
 
@@ -36,7 +37,6 @@ public class Slime extends Unit{
 
 	@Override
 	protected void levelUp() {
-		this.level++;
 		this.maxHp += 10;
 		this.hp += 7;
 		this.maxMp += 10;

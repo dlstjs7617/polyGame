@@ -9,7 +9,7 @@ import polyGame.unit.Unit;
 import polyGame.unit.UnitManager;
 
 public class Battle extends Stage{
-	private UnitManager unitManager = new UnitManager();
+	private UnitManager unitManager = UnitManager.getUnitManager();
 	private ArrayList<Unit> playerList = null;
 	private ArrayList<Unit> monList = null;
 	private Random ran = new Random();
@@ -164,7 +164,7 @@ public class Battle extends Stage{
 		System.out.println("╔════════════════════════════════════════════════════╗");
 		for(int i=0; i<playerList.size(); i++) {
 			Unit unit = playerList.get(i);
-			unit.printUnit(unit);
+			unitManager.printUnit(unit);
 			
 		}
 		System.out.println("╚════════════════════════════════════════════════════╝");
@@ -174,7 +174,7 @@ public class Battle extends Stage{
 		System.out.println("╔════════════════════════════════════════════════════╗");
 		for(int i=0; i<monList.size(); i++) {
 			Unit unit = monList.get(i);
-			unit.printUnit(unit);
+			unitManager.printUnit(unit);
 		}
 		System.out.println("╚════════════════════════════════════════════════════╝");
 	}

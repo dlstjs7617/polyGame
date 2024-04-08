@@ -5,6 +5,7 @@ import polyGame.unit.Unit;
 public class Bat extends Unit{
 	public Bat(int level) {
 		this.name = "박쥐";
+		this.level = level;
 		init();
 	}
 
@@ -35,7 +36,6 @@ public class Bat extends Unit{
 
 	@Override
 	protected void levelUp() {
-		this.level++;
 		this.maxHp += 7;
 		this.hp += 7;
 		this.maxMp += 10;

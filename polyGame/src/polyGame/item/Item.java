@@ -62,7 +62,7 @@ public class Item {
 			
 		
 		
-		return String.format("%s : %s(%d)↑ %s골드 %s", name, message, status, price,ea > 0 ? ea+"개" : "");
+		return String.format("%s : %s(%d)↑ %s골드 %s", name, message, status, price,ea > 1 ? ea+"개" : "");
 	}
 	
 	

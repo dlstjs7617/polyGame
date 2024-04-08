@@ -30,9 +30,8 @@ public class Warrior extends Player{
 
 	@Override
 	protected void levelUp() {
-		this.level++;
 		this.maxHp += 15;
-		this.hp += 7;
+		this.hp += 15;
 		this.maxMp += 5;
 		this.mp += 10;
 		this.power += 7;

@@ -33,7 +33,6 @@ public class Healer extends Player{
 	
 	@Override
 	protected void levelUp() {
-		this.level++;
 		this.maxHp += 7;
 		this.hp += 7;
 		this.maxMp += 10;

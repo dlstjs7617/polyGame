@@ -45,7 +45,7 @@ public class Shop {
 		System.out.println("╔════════════════════════════════╗");
 		System.out.println("║     1.무기 2.갑옷 3.반지 4.포션	 ║");	
 		System.out.println("╚════════════════════════════════╝");
-		int sel = GameManager.inputString("선택");
+		int sel = GameManager.inputNumber("선택");
 	
 		if(sel == WEAPON)
 			printWeaponMenu();
@@ -64,7 +64,7 @@ public class Shop {
 			System.err.println("팔 아이템이 없습니다.");
 			return;
 		}
-		int idx = GameManager.inputString("선택")-1;
+		int idx = GameManager.inputNumber("선택")-1;
 		
 		if(idx < 0 || idx > inventory.size()) {
 			System.err.println("없는 아이템");
@@ -78,7 +78,7 @@ public class Shop {
 			System.out.println("╔═══════════════════════════════════════════════╗");
 			System.out.println("║  1.검(전사) 2.스태프(마법사) 3.완드(힐러) 0.나가기	║");	
 			System.out.println("╚═══════════════════════════════════════════════╝");
-			int sel = GameManager.inputString("선택");
+			int sel = GameManager.inputNumber("선택");
 			
 			if(sel == SWORD)
 				buyItem(SWORD);
@@ -123,7 +123,7 @@ public class Shop {
 	private void buyItem(int type) {
 		System.out.println("소지금 : " + Guild.money + "골드");
 		ArrayList<Integer> selList = printItem(type);
-		int goods = GameManager.inputString("상품선택")-1;
+		int goods = GameManager.inputNumber("상품선택")-1;
 		
 		if(goods < 0 || goods >= selList.size()) {
 			System.err.println("없는 상품");
@@ -169,7 +169,7 @@ public class Shop {
 	public void shopRun() {
 		while(true) {
 			printNPC();
-			int sel = GameManager.inputString("선택");
+			int sel = GameManager.inputNumber("선택");
 			
 			if(sel == BUY) {
 				buyMenu();

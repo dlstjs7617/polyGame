@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import polyGame.stage.Guild;
 
 public class Inventory {
-	private ArrayList<Item> itemList = new ArrayList<Item>();
+	public static ArrayList<Item> itemList = new ArrayList<Item>();
 
 	private static final Inventory instance = new Inventory();
     
@@ -18,6 +18,10 @@ public class Inventory {
     }
 	
 	
+    public ArrayList<Item> getItemList(){
+    	return itemList;
+    }
+    
 	public Item clone(Item item) {
 		int type = item.getType();
 		String name = item.getName();
@@ -69,6 +73,29 @@ public class Inventory {
 			System.out.println("  " + (i+1) +". " + itemList.get(i));
 		}
 		System.out.println("╚══════════════════════════════════════════╝");
+	}
+	
+	public void printItemList(int type) {
+		System.out.println("╔══════════════════════════════════════════╗");
+		for(int i=0; i<itemList.size(); i++) {
+			if(itemList.get(i).getType() == type)
+				System.out.println("  " + (i+1) +". " + itemList.get(i));
+		}
+		System.out.println("╚══════════════════════════════════════════╝");
+	}
+	
+	public ArrayList<Integer> selectItemList(int type) {
+		ArrayList<Integer> list = new ArrayList<>();
+		int cnt = 0;
+		System.out.println("╔══════════════════════════════════════════╗");
+		for(int i=0; i<itemList.size(); i++) {
+			if(itemList.get(i).getType() == type) {
+				list.add(i);
+				System.out.println("  " + (cnt++ + 1) +". " + itemList.get(i));
+			}
+		}
+		System.out.println("╚══════════════════════════════════════════╝");
+		return list;
 	}
 	
 	public void createItem(Item item) {

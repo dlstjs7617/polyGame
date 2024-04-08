@@ -20,7 +20,7 @@ public class Village extends Stage{
 	public boolean update() {
 		while(true) {
 			System.out.println("1.길드 2.상점 0.나가기");
-			int sel = GameManager.inputString("선택");
+			int sel = GameManager.inputNumber("선택");
 			if(sel == -1)
 				continue;
 			

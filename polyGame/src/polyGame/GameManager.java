@@ -35,7 +35,7 @@ public class GameManager {
 		nextStage = "Lobby";
 	}
 	
-	public static int inputString(String message) {
+	public static int inputNumber(String message) {
 		int number = -1;
 		System.out.print(message + " : ");
 		try {
