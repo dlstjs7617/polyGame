@@ -67,7 +67,7 @@ public class Inventory {
 		return itemList.size();
 	}
 	
-	public void printItemList() {
+	public static void printItemList() {
 		System.out.println("╔══════════════════════════════════════════╗");
 		for(int i=0; i<itemList.size(); i++) {
 			System.out.println("  " + (i+1) +". " + itemList.get(i));
@@ -75,7 +75,7 @@ public class Inventory {
 		System.out.println("╚══════════════════════════════════════════╝");
 	}
 	
-	public void printItemList(int type) {
+	public static void printItemList(int type) {
 		System.out.println("╔══════════════════════════════════════════╗");
 		for(int i=0; i<itemList.size(); i++) {
 			if(itemList.get(i).getType() == type)
@@ -84,7 +84,7 @@ public class Inventory {
 		System.out.println("╚══════════════════════════════════════════╝");
 	}
 	
-	public ArrayList<Integer> selectItemList(int type) {
+	public static ArrayList<Integer> selectItemList(int type) {
 		ArrayList<Integer> list = new ArrayList<>();
 		int cnt = 0;
 		System.out.println("╔══════════════════════════════════════════╗");
