@@ -50,9 +50,11 @@ public class GameManager {
 	}
 
 	
-	private boolean changeStage() {		
-		System.out.println("curStage : " + curStage);
-		System.out.println("nextStage : " + nextStage);
+	private boolean changeStage() {
+		System.out.println("╔═══════════════════════════════════════╗");
+		System.out.println("║ curStage : " + curStage);
+		System.out.println("║ nextStage : " + nextStage);
+		System.out.println("╚═══════════════════════════════════════╝");
 
 		if (curStage.equals(nextStage))
 			return true;
