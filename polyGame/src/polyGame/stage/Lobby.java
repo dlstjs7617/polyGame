@@ -11,7 +11,7 @@ public class Lobby extends Stage{
 		System.out.println("=========[던전입구]======");
 		System.out.println("1.던전입장 2.마을 3.게임종료");
 		System.out.println("======================");
-		int sel = GameManager.sc.nextInt();
+		int sel = GameManager.inputNumber("선택");
 		if(sel == 1) {
 			GameManager.nextStage = "Move";
 		}else if(sel == 2) {
