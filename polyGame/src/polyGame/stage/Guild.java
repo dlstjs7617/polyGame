@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import polyGame.GameManager;
 import polyGame.PrintText;
+import polyGame.data.Load;
+import polyGame.data.Save;
 import polyGame.item.Inventory;
 import polyGame.item.Item;
 import polyGame.unit.Unit;
@@ -41,7 +43,8 @@ public class Guild{
 	private static ArrayList<Unit> players = new ArrayList<Unit>();
 	
 	private static Guild instance = new Guild();
-
+	private Save save = new Save();
+	private Load load = new Load();
 	
 	private final int NAME_SIZE = 10;
 	private int count;
@@ -281,6 +284,10 @@ public class Guild{
 		System.out.println("길드에서 휴식해 회복되었다.");
 	}
 	
+	private void save() { 
+		save.save();
+	}
+	
 	public void run() {
 		while(true) {
 			PrintText.printGuild();
@@ -306,7 +313,7 @@ public class Guild{
 			}else if(sel == EQUIPMENT) {
 				equipment();
 			}else if(sel == SAVE) {
-				
+				save();
 			}else if(sel == LOAD) {
 				
 			}
