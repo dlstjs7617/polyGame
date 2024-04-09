@@ -52,10 +52,7 @@ public class Load {
 			String name = playerArr[1];
 			int level = Integer.parseInt(playerArr[2]);
 			boolean party = playerArr[3].equals("true") ? true : false;
-			System.out.println(role);
-			System.out.println(name);
-			System.out.println(level);
-			System.out.println(party);
+
 			if(role.equals("전사")) {
 				player = new Warrior(name, level);
 				player.setParty(party);
