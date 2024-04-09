@@ -23,6 +23,8 @@ public class Guild{
 	private final int OUT = 3;
 	private final int INVENTORY = 4;
 	private final int EQUIPMENT = 5;
+	private final int SAVE = 6;
+	private final int LOAD = 7;
 	
 	private final int BRONZE = 1;
 	private final int SILVER = 2;
@@ -74,6 +76,7 @@ public class Guild{
 		System.out.println("║    🛡️1.파티 편성 	🤝2.길드원 모집	║");
 		System.out.println("║    ❌3.길드 추방 	🎒4.인벤토리 	║");
 		System.out.println("║    🗡5.파티원 장비	🚪0.나가기		║");
+		System.out.println("║    💾6.저장하기		⏳7.불러오기	║");
 		System.out.println("╚═══════════════════════════════════════╝");
 		
 	}
@@ -302,6 +305,10 @@ public class Guild{
 				printInventory();
 			}else if(sel == EQUIPMENT) {
 				equipment();
+			}else if(sel == SAVE) {
+				
+			}else if(sel == LOAD) {
+				
 			}
 		}
 	}
