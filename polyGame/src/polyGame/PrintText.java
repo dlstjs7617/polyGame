@@ -28,7 +28,14 @@ public class PrintText {
 		System.out.println("====== " + floor + "층 =====");
 	}
 	
-	
+	public static void printLobby() {
+		System.out.println("╔═══════════════════════════════════════╗");
+		System.out.println("║          	[로비]		    	║");
+		System.out.println("╠═══════════════════════════════════════╣");
+		System.out.println("║    🐉1.던전 입장 	🏰2.마을		║");		
+		System.out.println("║    🚪0.나가기				║");
+		System.out.println("╚═══════════════════════════════════════╝");
+	}
 	
 	public static void printWarriorSkill() {
 		System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢻⢷⣷⣣⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n"
