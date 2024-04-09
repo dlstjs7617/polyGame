@@ -1,22 +1,24 @@
 package polyGame.stage;
 
 import polyGame.GameManager;
+import polyGame.PrintText;
 
 public class Lobby extends Stage{
 
-	
+	private final int DUNGEON = 1;
+	private final int VILLAGE = 2;
+	private final int EXIT = 0;
 	
 	@Override
 	public boolean update() {
-		System.out.println("=========[던전입구]======");
-		System.out.println("1.던전입장 2.마을 3.게임종료");
-		System.out.println("======================");
+		PrintText.printLobby();
+		
 		int sel = GameManager.inputNumber("선택");
-		if(sel == 1) {
+		if(sel == DUNGEON) {
 			GameManager.nextStage = "Move";
-		}else if(sel == 2) {
+		}else if(sel == VILLAGE) {
 			GameManager.nextStage = "Village";
-		}else if(sel == 3) {
+		}else if(sel == EXIT) {
 			GameManager.nextStage = "End";
 		}else {
 			return true;
