@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 
+import polyGame.GameManager;
 import polyGame.item.Inventory;
 import polyGame.item.Item;
 import polyGame.stage.Guild;
@@ -88,7 +89,7 @@ public class Save {
 	}
 	
 	public void save() {
-		String data = "";
+		String data = GameManager.floor +"," + Guild.money +"%";
 		data += savePlayers() +"%";
 		data += saveItem();
 		try {
