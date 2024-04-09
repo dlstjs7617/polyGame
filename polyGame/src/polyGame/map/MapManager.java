@@ -33,8 +33,6 @@ public class MapManager {
 				DungeonMap dMap = map.get(i).get(j);
 				if(y == i && x == j)
 					System.out.print("▶ ");
-				else if(dMap.getCheck() && dMap.getEncount() ==1)
-					System.out.print("💀 ");
 				else
 					System.out.print(map.get(i).get(j));
 			}

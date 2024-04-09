@@ -20,7 +20,7 @@ public class PrintText {
 	public void intro() {
 		for(int i=0; i<intro.length(); i++) {
 			System.out.print(intro.charAt(i));
-//			delay100();
+			delay100();
 		}
 	}
 	

@@ -15,7 +15,9 @@ public class Village extends Stage{
 	@Override
 	public boolean update() {
 		while(true) {
-			System.out.println("1.길드 2.상점 0.나가기");
+			System.out.println("╔═══════════════════════════════════════╗");
+			System.out.println("║	1.길드 2.상점 0.나가기		║");
+			System.out.println("╚═══════════════════════════════════════╝");
 			int sel = GameManager.inputNumber("선택");
 			if(sel == -1)
 				continue;
