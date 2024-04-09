@@ -72,6 +72,10 @@ public class Guild{
 		return players;
 	}
 	
+	public static void setPlayer(ArrayList<Unit> player){
+		players = player;
+	}
+	
 	private void GuildMenu() {
 		System.out.println("╔═══════════════════════════════════════╗");
 		System.out.println("║          [🌟 길드 메뉴 🌟]	    	║");
@@ -288,6 +292,10 @@ public class Guild{
 		save.save();
 	}
 	
+	private void load() {
+		load.load();
+	}
+	
 	public void run() {
 		while(true) {
 			PrintText.printGuild();
@@ -315,7 +323,7 @@ public class Guild{
 			}else if(sel == SAVE) {
 				save();
 			}else if(sel == LOAD) {
-				
+				load();
 			}
 		}
 	}

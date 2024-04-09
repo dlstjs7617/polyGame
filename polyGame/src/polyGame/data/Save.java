@@ -15,11 +15,13 @@ public class Save {
 	private String fileName = "save.txt";
 	private File file;
 	private FileWriter fw;
-	private ArrayList<Unit> players = Guild.getPlayers();
+	private ArrayList<Unit> players;
 	private Inventory inventory = Inventory.getInstance();
-	private ArrayList<Item> itemList = inventory.getItemList();
+	private ArrayList<Item> itemList;
 	public Save() {
 		file = new File(fileName);
+		players = Guild.getPlayers();
+		itemList = inventory.getItemList();
 	}
 	
 	private String savePlayers() {
@@ -62,7 +64,6 @@ public class Save {
 			}else {
 				result += "null";	
 			}
-			result+= "!";
 			
 			if(i != players.size()-1)
 				result += "\n";

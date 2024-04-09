@@ -22,6 +22,10 @@ public class Inventory {
     	return itemList;
     }
     
+    public void setItemList(ArrayList<Item> list){
+    	itemList = list;
+    }
+    
 	public Item clone(Item item) {
 		int type = item.getType();
 		String name = item.getName();
