@@ -11,9 +11,9 @@ import polyGame.unit.Unit;
 import polyGame.unit.player.Player;
 
 public class Save {
-	public String fileName = "save.txt";
-	public File file;
-	public FileWriter fw;
+	private String fileName = "save.txt";
+	private File file;
+	private FileWriter fw;
 	private ArrayList<Unit> players = Guild.getPlayers();
 	private Inventory inventory = Inventory.getInstance();
 	private ArrayList<Item> itemList = inventory.getItemList();
