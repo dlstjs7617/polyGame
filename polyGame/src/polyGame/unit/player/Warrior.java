@@ -13,15 +13,15 @@ public class Warrior extends Player{
 
 	@Override
 	public void init() {
-		this.hp = 300;
+		this.hp = 500;
 		this.maxHp = this.hp;
-		this.mp = 80;
+		this.mp = 150;
 		this.maxMp = this.mp;
 		
-		this.power = 20;
-		this.magicPower = 10;
+		this.power = 30;
+		this.magicPower = 15;
 		
-		this.defense = 10;
+		this.defense = 20;
 		this.luck = 3;
 		this.dex = 3;
 		if(this.level != 1)
@@ -30,13 +30,13 @@ public class Warrior extends Player{
 
 	@Override
 	protected void levelUp() {
-		this.maxHp += 15;
-		this.hp += 15;
-		this.maxMp += 5;
+		this.maxHp += 20;
+		this.hp += 20;
+		this.maxMp += 10;
 		this.mp += 10;
-		this.power += 7;
-		this.magicPower += 3;
-		this.defense += 2;
+		this.power += 15;
+		this.magicPower += 5;
+		this.defense += 4;
 		
 		if(this.level%3 == 0) {
 			this.luck++;

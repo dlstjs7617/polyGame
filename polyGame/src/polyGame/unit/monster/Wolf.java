@@ -24,7 +24,7 @@ public class Wolf extends Unit{
 			if(damage <= 0) {
 				System.out.println("   " + unit.getName() +"의 방어력이 높아 " + getName() + "의 공격이 막혔다.");
 			}else {
-				unit.setHp(getHp()-damage);
+				unit.setHp(unit.getHp()-damage);
 				System.out.println("   " + getName() +"가 " + unit.getName() + "에게 " + damage +"를 입혔다.");
 			}
 		}else {
@@ -32,7 +32,7 @@ public class Wolf extends Unit{
 			if(damage <= 0) {
 				System.out.println("   " + unit.getName() +"의 방어력이 높아 " + getName() + "의 공격이 막혔다.");
 			}else {
-				unit.setHp(getHp()-damage);
+				unit.setHp(unit.getHp()-damage);
 				System.out.println("   " + getName() +"가 " + unit.getName() + "에게 " + damage +"를 입혔다.");
 			}
 		}

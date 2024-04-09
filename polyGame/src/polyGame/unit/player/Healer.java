@@ -13,9 +13,9 @@ public class Healer extends Player{
 
 	@Override
 	public void init() {
-		this.hp = 180;
+		this.hp = 300;
 		this.maxHp = this.hp;
-		this.mp = 200;
+		this.mp = 300;
 		this.maxMp = this.mp;
 		
 		this.power = 12;
@@ -33,13 +33,13 @@ public class Healer extends Player{
 	
 	@Override
 	protected void levelUp() {
-		this.maxHp += 7;
-		this.hp += 7;
+		this.maxHp += 10;
+		this.hp += 10;
 		this.maxMp += 10;
 		this.mp += 10;
-		this.power += 5;
-		this.magicPower += 5;
-		this.defense += 2;
+		this.power += 10;
+		this.magicPower += 7;
+		this.defense += 3;
 		
 		if(this.level%2 == 0) {
 			this.luck++;

@@ -13,15 +13,15 @@ public class Wizard extends Player{
 
 	@Override
 	public void init() {
-		this.hp = 150;
+		this.hp = 300;
 		this.maxHp = this.hp;
-		this.mp = 250;
+		this.mp = 400;
 		this.maxMp = this.mp;
 		
-		this.power = 10;
-		this.magicPower = 20;
+		this.power = 20;
+		this.magicPower = 30;
 		
-		this.defense = 5;
+		this.defense = 10;
 		this.luck = 3;
 		this.dex = 1;
 		
@@ -32,12 +32,12 @@ public class Wizard extends Player{
 	@Override
 	protected void levelUp() {
 		this.maxHp += 10;
-		this.hp += 7;
-		this.maxMp += 10;
-		this.mp += 10;
-		this.power += 5;
-		this.magicPower += 7;
-		this.defense += 2;
+		this.hp += 10;
+		this.maxMp += 15;
+		this.mp += 15;
+		this.power += 10;
+		this.magicPower += 15;
+		this.defense += 3;
 		
 		if(this.level%3 == 0) {
 			this.luck++;
