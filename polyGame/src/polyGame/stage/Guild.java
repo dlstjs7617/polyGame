@@ -294,6 +294,11 @@ public class Guild{
 	
 	private void load() {
 		load.load();
+		count = 0;
+		for(int i=0; i<players.size(); i++) {
+			if(players.get(i).isParty())
+				count++;
+		}
 	}
 	
 	public void run() {
