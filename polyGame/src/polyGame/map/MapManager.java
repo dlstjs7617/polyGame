@@ -30,8 +30,11 @@ public class MapManager {
 	public void printMap() {
 		for(int i=0; i<SIZE; i++) {
 			for(int j=0; j<SIZE; j++) {
+				DungeonMap dMap = map.get(i).get(j);
 				if(y == i && x == j)
 					System.out.print("▶ ");
+				else if(dMap.getCheck() && dMap.getEncount() ==1)
+					System.out.print("💀 ");
 				else
 					System.out.print(map.get(i).get(j));
 			}

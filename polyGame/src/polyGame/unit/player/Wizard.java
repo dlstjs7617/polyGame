@@ -51,7 +51,12 @@ public class Wizard extends Player{
 		}
 		setMp(getMp()-50);
 		PrintText.printWizardSkill();
-		int attack = magicPower*2 + power + getWeapon().getStatus();
+		int attack;
+		if(getWeapon() != null) {
+			attack = magicPower*2 + power + getWeapon().getStatus();			
+		}else {
+			attack = magicPower*2 + power;
+		}
 		int damage = unit.getHp()-attack;
 		PrintText.delay200();
 		System.out.println("╔════════════════════════════════╗");

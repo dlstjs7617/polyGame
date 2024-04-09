@@ -52,7 +52,12 @@ public class Warrior extends Player{
 		// 스킬 구현
 		setMp(getMp()-20);
 		PrintText.printWarriorSkill();
-		int attack = power*2 + magicPower + getWeapon().getStatus();
+		int attack;
+		if(getWeapon() != null) {
+			attack = power*2 + magicPower + getWeapon().getStatus();
+		}else {
+			attack = power*2 + magicPower;
+		}
 		int damage = unit.getHp()- attack;
 		
 		PrintText.delay200();

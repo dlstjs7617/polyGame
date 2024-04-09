@@ -49,7 +49,6 @@ public class Battle extends Stage{
 				GameManager.nextStage = "Move";
 				return false;
 			}
-			
 			monsterAttck();
 			if(checkDead(playerList) == playerList.size()) {
 				System.out.println("게임 패배");
@@ -103,16 +102,20 @@ public class Battle extends Stage{
 			Unit monster = monList.get(ranAttack(monList));
 			
 			
-			
-			
 			if(sel == ATTACK) {
 				player.attack(monster);			
 				
 			}else if(sel == SKILL) {
 				if(player.getRole().equals("성직자")) {
-					player.skill(findLowHp());					
+					if(!player.skill(findLowHp())) {
+						i--;
+						continue;
+					}
 				}else {					
-					player.skill(monster);
+					if(!player.skill(monster)) {
+						i--;
+						continue;
+					}
 				}
 			}else if(sel == BAGPACK) {
 				ArrayList<Integer> list = Inventory.selectItemList(6);
@@ -156,17 +159,14 @@ public class Battle extends Stage{
 		monster.attack(player);
 	}
 	
-	private void monsterSkill() {
-		
-	}
 	private void monsterAttck() {
 		for(int i=0; i<monList.size(); i++) {
-			if(checkDead(monList) == monList.size()) {
+			if(checkDead(playerList) == playerList.size()) {
 				return;
 			}
 			
 			Unit monster = monList.get(i);
-			
+			Unit player = playerList.get(ranAttack(playerList));
 			if(monster.isDead())
 				continue;
 			
@@ -175,7 +175,9 @@ public class Battle extends Stage{
 			if(ranATK != 1) {
 				monsterNomalAttack(monster);
 			}else {
-				monsterSkill();
+				if(!monster.skill(player)) {
+					monster.attack(player);
+				}
 			}
 			
 		}

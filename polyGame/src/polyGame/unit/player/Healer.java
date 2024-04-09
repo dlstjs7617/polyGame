@@ -54,8 +54,12 @@ public class Healer extends Player{
 		}
 		setMp(mp-30);
 		PrintText.printHealerSkill();
-		
-		int heal = magicPower+power + getWeapon().getStatus();
+		int heal;
+		if(getWeapon() != null) {
+			heal = magicPower+power + getWeapon().getStatus();			
+		}else {
+			heal = magicPower+power;
+		}
 		PrintText.delay200();
 		System.out.println("╔════════════════════════════════╗");
 		System.out.println("║		회복		 ║");

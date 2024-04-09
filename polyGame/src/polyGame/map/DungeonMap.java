@@ -33,6 +33,6 @@ public class DungeonMap {
 	
 	@Override
 	public String toString() {
-		return String.format("%s", check == true ? "■ " : "□ ");
+		return String.format("%s", check == true ? "⬛ " : "⬜ ");
 	}
 }

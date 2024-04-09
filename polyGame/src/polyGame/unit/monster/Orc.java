@@ -1,5 +1,6 @@
 package polyGame.unit.monster;
 
+import polyGame.item.Item;
 import polyGame.unit.Unit;
 
 public class Orc extends Unit{
@@ -11,8 +12,32 @@ public class Orc extends Unit{
 
 	@Override
 	public boolean skill(Unit unit) {
-		// TODO Auto-generated method stub
-		return false;
+		if(getMp() < 30) {
+			return false;
+		}
+		setMp(getMp()-30);
+		System.out.println("╔════════════════════════════════╗");
+		Item armor = unit.getArmor();
+		System.out.println("	오크의 바위던지기");
+		if(armor != null) {
+			int damage = getPower() * 2-unit.getDefense()/3-armor.getStatus();
+			if(damage <= 0) {
+				System.out.println("   " + unit.getName() +"의 방어력이 높아 " + getName() + "의 공격이 막혔다.");
+			}else {
+				unit.setHp(getHp()-damage);
+				System.out.println("   " + getName() +"가 " + unit.getName() + "에게 " + damage +"를 입혔다.");
+			}
+		}else {
+			int damage = getPower()*2 -unit.getDefense();			
+			if(damage <= 0) {
+				System.out.println("   " + unit.getName() +"의 방어력이 높아 " + getName() + "의 공격이 막혔다.");
+			}else {
+				unit.setHp(getHp()-damage);
+				System.out.println("   " + getName() +"가 " + unit.getName() + "에게 " + damage +"를 입혔다.");
+			}
+		}
+		System.out.println("╚════════════════════════════════╝");
+		return true;
 	}
 
 

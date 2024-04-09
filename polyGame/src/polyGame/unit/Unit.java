@@ -186,7 +186,13 @@ public abstract class Unit {
 	}
 	
 	private void nomalAttack(Unit unit) {
-		int damage = power - unit.defense/3 + getWeapon().getStatus();
+		int damage = 0;
+		if(getWeapon() != null) {
+			damage = power - unit.defense/3 + getWeapon().getStatus();
+		}else {
+			damage = power - unit.defense/3;
+		}
+		
 		String temp = String.format("%s가 %s를 %d의 공격!", this.name, unit.getName(), damage);
 		
 		System.out.println("╔════════════════════════════════╗");
@@ -200,7 +206,12 @@ public abstract class Unit {
 	}
 	
 	private void criticalAttack(Unit unit) {
-		int fullPower = (power*2) - (unit.defense/2) + getWeapon().getStatus();
+		int fullPower = 0;
+		if(getWeapon() != null) {
+			fullPower = power - unit.defense/3 + getWeapon().getStatus();
+		}else {
+			fullPower = power - unit.defense/3;
+		}
 		String temp = String.format("%s가 %s를 %d의 치명타 공격!", this.name, unit.getName(), fullPower);
 
 		System.out.println("╔════════════════════════════════╗");
