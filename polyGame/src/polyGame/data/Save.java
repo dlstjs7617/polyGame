@@ -35,7 +35,7 @@ public class Save {
 				result += item.getType()+"/";
 				result += item.getName()+"/";
 				result += item.getStatus()+"/";
-				result += item.getPrice()+"/";
+				result += item.getPrice();
 			}else {
 				result += "null";				
 			}
@@ -46,7 +46,7 @@ public class Save {
 				result += item.getType()+"/";
 				result += item.getName()+"/";
 				result += item.getStatus()+"/";
-				result += item.getPrice()+"/";
+				result += item.getPrice();
 			}else {
 				result += "null";				
 			}
@@ -57,7 +57,7 @@ public class Save {
 				result += item.getType()+"/";
 				result += item.getName()+"/";
 				result += item.getStatus()+"/";
-				result += item.getPrice()+"/";
+				result += item.getPrice();
 			}else {
 				result += "null";	
 			}
